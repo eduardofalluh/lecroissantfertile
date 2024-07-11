@@ -23,7 +23,6 @@ import { trigger, style, transition, animate } from '@angular/animations';
 export class PageAccueilComponent implements OnInit {
   title = 'LE CROISSANT FERTILE';
   showContent = false;
-  showInitialBackground = true;
 
   ngOnInit() {
     this.typeTitleText();
@@ -45,7 +44,6 @@ export class PageAccueilComponent implements OnInit {
           // Once typing is complete, show the rest of the content
           setTimeout(() => {
             this.showContent = true;
-            this.showInitialBackground = false;
           }, 500); // Delay for smooth transition
         }
       };
