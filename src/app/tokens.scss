@@ -1,0 +1,32 @@
+/* Variables */
+$variable-collection-paragraph-text-color: #667085;
+$variable-collection-primary-color: #e34d4d;
+
+/* Styles */
+@mixin koulen-32-regular-text {
+  font-family: Koulen;
+  font-style: Regular;
+  font-size: 32px;
+  letter-spacing: 0%;
+  line-height: auto;
+  text-decoration-line: none;
+  text-transform: none;
+}
+@mixin koulen-42-text {
+  font-family: Koulen;
+  font-style: Regular;
+  font-size: 42px;
+  letter-spacing: 0%;
+  line-height: auto;
+  text-decoration-line: none;
+  text-transform: none;
+}
+@mixin koulen-24-text {
+  font-family: Koulen;
+  font-style: Regular;
+  font-size: 24px;
+  letter-spacing: 0%;
+  line-height: 139.9999976158142%;
+  text-decoration-line: none;
+  text-transform: none;
+}
