@@ -1,0 +1,103 @@
+<div class="page-artist">
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
+        <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
+        <div class="frame-3">
+          <div class="text-en-fr">EN/FR</div>
+        </div>
+      </div>
+      
+  
+    <div *ngIf="isBurgerMenuOpen" [@slideInOut]>
+      <div class="burger-menu">
+        <button class="close-button" (click)="toggleBurgerMenu()">X</button>
+        <ul>
+          <li>ARTISTES</li>
+          <li>EVENEMENT</li>
+          <li>SERVICES</li>
+          <li>CONTACTEZ NOUS</li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Artist Content -->
+    <div class="artist-content" [@fadeInContent]>
+      <div class="artist-header">
+        <h1>SHREEZ</h1>
+        <img src="assets/images/shreez.jpg" alt="Shreez">
+      </div>
+  
+      <div class="artist-bio">
+        <h2>Biography</h2>
+        <p>SHREEZ EST UN ARTISTE MONTRÉALAIS ÉMERGENT CONNU POUR SON STYLE UNIQUE ET SA CAPACITÉ À FUSIONNER DIFFÉRENTES INFLUENCES MUSICALES. ORIGINAIRE DE LA VIBRANTE SCÈNE ARTISTIQUE DE MONTRÉAL, SHREEZ A RAPIDEMENT GAGNÉ EN POPULARITÉ GRÂCE À SES PERFORMANCES DYNAMIQUES ET SES PAROLES PERCUTANTES. SON TRAVAIL EXPLORE SOUVENT DES THÈMES TELS QUE L'IDENTITÉ, LA CULTURE URBAINE, ET LES DÉFIS DE LA VIE QUOTIDIENNE. AVEC PLUSIEURS PROJETS À SON ACTIF ET UNE PRÉSENCE CROISSANTE SUR LES PLATEFORMES DE STREAMING, SHREEZ EST SANS AUCUN DOUTE UNE VOIX MONTANTE DANS LE PAYSAGE MUSICAL CANADIEN.</p>
+        <button class="btn">VOIR SPECTACLE</button>
+        <div class="social-links">
+          <img src="assets/images/spotify-icon.png" alt="Spotify">
+          <img src="assets/images/apple-music-icon.png" alt="Apple Music">
+        </div>
+      </div>
+  
+      <div class="artist-extra">
+        <h2>NOUVEAUTÉ</h2>
+        <div class="new-singles">
+          <div class="single-card">
+            <h3>NEW SINGLE</h3>
+            <p>SONG NAME <br> ARTIST NAME</p>
+          </div>
+          <div class="single-card">
+            <h3>NEW SINGLE</h3>
+            <p>SONG NAME <br> ARTIST NAME</p>
+          </div>
+          <div class="single-card">
+            <h3>NEW SINGLE</h3>
+            <p>SONG NAME <br> ARTIST NAME</p>
+          </div>
+        </div>
+  
+        <h2>PHOTOS</h2>
+        <div class="photos">
+          <div class="photo-card"></div>
+          <div class="photo-card"></div>
+          <div class="photo-card"></div>
+          <div class="photo-card"></div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <!-- Add Footer Logo Image Here -->
+          <img src="assets/images/logo.png" alt="Footer Logo" class="spinning-logo">
+        </div>
+        <h1 class="footer-description">
+          LE CROISSANT FERTILE
+        </h1>
+        <div class="footer-links">
+          <div class="frame-186">
+            <div class="text-website-links">Website Links</div>
+            <div class="text-about">About</div>
+            <div class="text-faqs">FAQs</div>
+          </div>
+          <div class="frame-185">
+            <div class="text-social-platforms">Social Platforms</div>
+            <div class="text-instagram">Instagram</div>
+            <div class="text-facebook">Facebook</div>
+          </div>
+          <div class="frame-5">
+            <div class="text-languages">Languages</div>
+            <div class="frame-1">
+              <div class="text-english">English</div>
+              <div class="text-french">French</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="text-rights-reserved">© 2024 All Rights Reserved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-page-accueil',
@@ -31,6 +33,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
   ]
 })
 export class PageAccueilComponent implements OnInit {
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
   title = 'LE CROISSANT FERTILE';
   showContent = false;
   isBurgerMenuOpen = false;
@@ -65,5 +68,17 @@ export class PageAccueilComponent implements OnInit {
 
   toggleBurgerMenu() {
     this.isBurgerMenuOpen = !this.isBurgerMenuOpen;
+  }
+
+  navigateToArtist() {
+    this.router.navigate(['/artist']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  navigateToMain() {
+    this.router.navigate(['/']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
   }
 }

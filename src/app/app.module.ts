@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
+import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { ButtonComponent } from './button/button.component';
+import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingModule
 // Import SwiperModule
 // import 'swiper/swiper-bundle.min.css';
 
@@ -13,12 +15,14 @@ import { ButtonComponent } from './button/button.component';
   declarations: [
     AppComponent,
     PageAccueilComponent,
-    ButtonComponent
+    ButtonComponent,
+    ArtistPageComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // Add this line
