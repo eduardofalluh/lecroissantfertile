@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { ButtonComponent } from './button/button.component';
-
 // Import SwiperModule
 // import 'swiper/swiper-bundle.min.css';
 

@@ -9,13 +9,23 @@ import { trigger, style, transition, animate } from '@angular/animations';
     trigger('fadeInLogoAndTitle', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('1s', style({ opacity: 1 }))
+        animate('3s', style({ opacity: 1 }))
       ])
     ]),
     trigger('fadeInContent', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('2s', style({ opacity: 1 }))
+        animate('1s', style({ opacity: 1 }))
+      ])
+    ]),
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.3s ease-in', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('0.3s ease-out', style({ opacity: 0 }))
       ])
     ])
   ]
@@ -23,6 +33,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
 export class PageAccueilComponent implements OnInit {
   title = 'LE CROISSANT FERTILE';
   showContent = false;
+  isBurgerMenuOpen = false;
 
   ngOnInit() {
     this.typeTitleText();
@@ -50,5 +61,9 @@ export class PageAccueilComponent implements OnInit {
 
       typeEffect();
     }
+  }
+
+  toggleBurgerMenu() {
+    this.isBurgerMenuOpen = !this.isBurgerMenuOpen;
   }
 }
