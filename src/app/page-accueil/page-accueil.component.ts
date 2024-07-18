@@ -8,12 +8,6 @@ import { ViewportScroller } from '@angular/common';
   templateUrl: './page-accueil.component.html',
   styleUrls: ['./page-accueil.component.scss'],
   animations: [
-    // trigger('fadeInLogoAndTitle', [
-    //   transition(':enter', [
-    //     style({ opacity: 0 }),
-    //     animate('3s', style({ opacity: 1 }))
-    //   ])
-    // ]),
     trigger('fadeInContent', [
       transition(':enter', [
         style({ opacity: 0 }),
@@ -33,13 +27,24 @@ import { ViewportScroller } from '@angular/common';
   ]
 })
 export class PageAccueilComponent implements OnInit {
-  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
   title = 'LE CROISSANT FERTILE';
   showContent = false;
   isBurgerMenuOpen = false;
 
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
+
   ngOnInit() {
+    this.checkRefresh();
     this.typeTitleText();
+  }
+
+  checkRefresh() {
+    if (sessionStorage.getItem('isRefreshed') === 'true') {
+      sessionStorage.setItem('isRefreshed', 'false');
+    } else {
+      sessionStorage.setItem('isRefreshed', 'true');
+      location.reload();
+    }
   }
 
   typeTitleText() {
@@ -84,6 +89,12 @@ export class PageAccueilComponent implements OnInit {
 
   navigateToServices() {
     this.router.navigate(['/services']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  navigateToArtists() {
+    this.router.navigate(['/artists']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }

@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
+import { ArtistsComponent } from './artists/artists.component';
+
 
 import { ButtonComponent } from './button/button.component';
 import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingModule
@@ -19,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingMod
     PageAccueilComponent,
     ButtonComponent,
     ArtistPageComponent,
-    ServicesPageComponent
+    ServicesPageComponent,
+    ArtistsComponent
   ],
   imports: [
     BrowserModule,

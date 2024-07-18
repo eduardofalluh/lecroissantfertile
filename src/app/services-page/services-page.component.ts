@@ -54,4 +54,10 @@ export class ServicesPageComponent implements OnInit {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
+
+  navigateToArtists() {
+    this.router.navigate(['/artists']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
 }
