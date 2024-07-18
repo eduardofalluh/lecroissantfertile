@@ -4,9 +4,9 @@ import { trigger, style, transition, animate } from '@angular/animations';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-artist-page',
-  templateUrl: './artist-page.component.html',
-  styleUrls: ['./artist-page.component.scss'],
+  selector: 'app-services-page',
+  templateUrl: './services-page.component.html',
+  styleUrls: ['./services-page.component.scss'],
   animations: [
     trigger('fadeInContent', [
       transition(':enter', [
@@ -26,11 +26,10 @@ import { ViewportScroller } from '@angular/common';
     ])
   ]
 })
-export class ArtistPageComponent implements OnInit {
-  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
-
+export class ServicesPageComponent implements OnInit {
   isBurgerMenuOpen = false;
-  showFullBio = false;
+
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
   ngOnInit() {}
 
@@ -38,18 +37,16 @@ export class ArtistPageComponent implements OnInit {
     this.isBurgerMenuOpen = !this.isBurgerMenuOpen;
   }
 
-  navigateToMain() {
-    this.router.navigate(['/']).then(() => {
+  navigateToArtist() {
+    this.router.navigate(['/artist']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
 
-  toggleSeeMore() {
-    this.showFullBio = !this.showFullBio;
-  }
-
-  get seeMoreButtonText() {
-    return this.showFullBio ? 'VOIR MOINS' : 'VOIR PLUS';
+  navigateToMain() {
+    this.router.navigate(['/']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
   }
 
   navigateToServices() {

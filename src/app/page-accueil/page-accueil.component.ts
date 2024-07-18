@@ -81,4 +81,10 @@ export class PageAccueilComponent implements OnInit {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
+
+  navigateToServices() {
+    this.router.navigate(['/services']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
 }

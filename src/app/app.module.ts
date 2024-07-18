@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { ArtistPageComponent } from './artist-page/artist-page.component';
+import { ServicesPageComponent } from './services-page/services-page.component';
+
 import { ButtonComponent } from './button/button.component';
 import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingModule
 // Import SwiperModule
@@ -16,7 +18,8 @@ import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingMod
     AppComponent,
     PageAccueilComponent,
     ButtonComponent,
-    ArtistPageComponent
+    ArtistPageComponent,
+    ServicesPageComponent
   ],
   imports: [
     BrowserModule,
