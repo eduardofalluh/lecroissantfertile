@@ -8,12 +8,12 @@ import { ViewportScroller } from '@angular/common';
   templateUrl: './page-accueil.component.html',
   styleUrls: ['./page-accueil.component.scss'],
   animations: [
-    trigger('fadeInLogoAndTitle', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('3s', style({ opacity: 1 }))
-      ])
-    ]),
+    // trigger('fadeInLogoAndTitle', [
+    //   transition(':enter', [
+    //     style({ opacity: 0 }),
+    //     animate('3s', style({ opacity: 1 }))
+    //   ])
+    // ]),
     trigger('fadeInContent', [
       transition(':enter', [
         style({ opacity: 0 }),

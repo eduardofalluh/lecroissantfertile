@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, style, transition, animate, keyframes } from '@angular/animations';
 import { Router } from '@angular/router';
+import { trigger, style, transition, animate } from '@angular/animations';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-artist-page',
@@ -13,26 +14,23 @@ import { Router } from '@angular/router';
         animate('1s', style({ opacity: 1 }))
       ])
     ]),
-    trigger('slideInOut', [
+    trigger('fadeInOut', [
       transition(':enter', [
-        animate('0.3s ease-in-out', keyframes([
-          style({ transform: 'translateY(-100%)', opacity: 0, offset: 0 }),
-          style({ transform: 'translateY(0)', opacity: 1, offset: 1.0 })
-        ]))
+        style({ opacity: 0 }),
+        animate('0.3s ease-in', style({ opacity: 1 }))
       ]),
       transition(':leave', [
-        animate('0.3s ease-in-out', keyframes([
-          style({ transform: 'translateY(0)', opacity: 1, offset: 0 }),
-          style({ transform: 'translateY(-100%)', opacity: 0, offset: 1.0 })
-        ]))
+        style({ opacity: 1 }),
+        animate('0.3s ease-out', style({ opacity: 0 }))
       ])
     ])
   ]
 })
 export class ArtistPageComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
   isBurgerMenuOpen = false;
+  showFullBio = false;
 
   ngOnInit() {}
 
@@ -41,7 +39,16 @@ export class ArtistPageComponent implements OnInit {
   }
 
   navigateToMain() {
-    console.log("WAS HEREEE");
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  toggleSeeMore() {
+    this.showFullBio = !this.showFullBio;
+  }
+
+  get seeMoreButtonText() {
+    return this.showFullBio ? 'VOIR MOINS' : 'VOIR PLUS';
   }
 }

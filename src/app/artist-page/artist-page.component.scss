@@ -7,51 +7,6 @@ html, body {
   box-sizing: border-box;
 }
 
-.page-artist {
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.navbar {
-  padding: 10px 20px;
-  top: 0;
-  left: 0;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background: #000000;
-  width: 100%;
-  height: 89px;
-  z-index: 2; /* Ensures the navbar is on top of other content */
-
-}
-
-.text-le-croissant-fertile {
-  color: #ffffff;
-  font-size: 40px;
-  font-family: Koulen;
-  text-align: left;
-  cursor: pointer; /* Add this line */
-
-}
-
-.frame-3 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.text-en-fr {
-  color: #ffffff;
-  font-size: 50px;
-  font-family: Koulen;
-  margin-right: 50px;
-}
-
 .burgerbar {
   height: 40px;
   width: 40px;
@@ -68,7 +23,7 @@ html, body {
   background: black;
   color: white;
   padding: 20px;
-  z-index: 1000;
+  z-index: 1001;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,52 +62,180 @@ html, body {
 }
 
 @keyframes slideIn {
-  from { transform: translateY(-50px); opacity: 0; }
+  from { transform: translateY(-100%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
-.artist-content {
-  padding: 20px;
-  text-align: center;
+@keyframes slideOut {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100%); opacity: 0; }
 }
 
-.artist-header {
-  margin-top: 50px;
+.page-artist {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
 }
 
-.artist-header h1 {
+.navbar {
+  padding: 10px 20px;
+  top: 0;
+  left: 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #000000;
+  width: 100%;
+  height: 89px;
+}
+
+.text-le-croissant-fertile {
+  color: #ffffff;
+  font-size: 40px;
+  font-family: Koulen;
+  text-align: left;
+  cursor: pointer;
+}
+
+.frame-3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.text-en-fr {
+  color: #ffffff;
   font-size: 50px;
   font-family: Koulen;
-  color: #000000;
+  margin-right: 50px;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  width: 100%;
+  height: 730px;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Add this to your CSS file */
+.spinning-logo {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* CSS for title typing effect */
+.title {
+  color: #ffffff;
+  font-size: 96px;
+  font-family: Koulen;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.content-wrapper {
+  display: none; /* Initially hide the content wrapper */
+}
+
+.content-wrapper.ng-trigger-fadeInContent {
+  display: block; /* Show the content wrapper when the animation starts */
+}
+
+.artist-content {
+  padding: 50px 20px;
+}
+
+.artist-picture{
+    width: 300px;
+    height: 350px;
+    border-radius: 30px;
+}
+
+.artist-header h1,
+.artist-bio,
+.artist-extra {
+  margin: 0;
+  padding: 0;
+}
+
+.artist-header  {
+  color: #ffffff;
+  font-size: 42px;
+  font-family: Koulen;
+  margin-bottom: 55px;
+  text-align: center;
+  background-color: #000000;
+  width: 100%;
+  height: 325px;
 }
 
 .artist-header img {
-  max-width: 300px;
+  max-width: 100%;
   height: auto;
-  border-radius: 12px;
-  margin-top: 20px;
-}
-
-.artist-bio {
-  margin-top: 50px;
 }
 
 .artist-bio h2 {
-  font-size: 42px;
-  font-family: Koulen;
   color: #000000;
+  font-size: 32px;
+  font-family: Koulen;
+  margin-bottom: 20px;
 }
 
 .artist-bio p {
+  color: #2b2d42;
   font-size: 24px;
   font-family: Koulen;
-  color: #2b2d42;
   max-width: 800px;
-  margin: 0 auto;
   text-align: justify;
 }
 
-.artist-bio .btn {
+h2{
+    text-align: center;
+}
+
+.artist-bio {
+    max-height: 650px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .see-more {
+    background-color: #e34d4d;
+    padding: 10px;
+    cursor: pointer;
+    width: 150px;
+    position: absolute;
+    border-radius: 10px;
+    color: white;
+    font-family: Koulen;
+    margin-top: 20px;
+  }
+  
+  .show-more .see-more {
+    display: block;
+  }
+  
+  .show-more .artist-bio {
+    max-height: none;
+    overflow: visible;
+  }
+  
+
+.btn {
   background: #e34d4d;
   color: #ffffff;
   font-family: Koulen;
@@ -160,37 +243,59 @@ html, body {
   border: none;
   cursor: pointer;
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 100px;
+  border-radius: 10px;
 }
 
-.artist-bio .btn:hover {
+.btn:hover {
   background: #d43a3a;
 }
 
-.artist-bio .social-links img {
+.social-links img {
   width: 40px;
   height: 40px;
-  margin: 20px 10px 0 10px;
+  margin: 0 10px;
 }
 
-.artist-extra {
-  margin-top: 50px;
-}
-
-.artist-extra h2 {
+.artist-extra .text-what-s-new {
+  color: #000000;
   font-size: 42px;
   font-family: Koulen;
-  color: #000000;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.new-singles, .photos {
+.swiper-container {
+  width: 100%;
+  height: 352px;
+}
+
+.swiper-slide {
+  width: calc(25% - 20px); /* Show 4 slides at a time with spacing */
+  margin-right: 20px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
-.single-card, .photo-card {
+.swiper-slide:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: calc(100% - 20px); /* Show 1 slide at a time on mobile */
+    margin-right: 20px;
+  }
+}
+
+.photos {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.photo-card {
   background: #e34d4d;
   width: 300px;
   height: 400px;
@@ -201,7 +306,6 @@ html, body {
   align-items: center;
   color: #ffffff;
   font-family: Koulen;
-  text-align: center;
 }
 
 .footer {
@@ -249,7 +353,7 @@ html, body {
   margin-bottom: 20px;
 }
 
-.text-home, .text-pricing, .text-about, .text-faqs, .text-instagram, .text-facebook, .text-tiktok, .text-twitter, .text-english, .text-french {
+.text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
   font-size: 24px;
   font-family: Koulen;
   margin: 5px 0;
@@ -267,16 +371,6 @@ html, body {
   font-family: Koulen;
 }
 
-.frame-39 {
-  display: flex;
-  gap: 20px;
-}
-
-.text-terms, .text-privacy, .text-cookies {
-  font-size: 16px;
-  font-family: Koulen;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
@@ -289,29 +383,12 @@ html, body {
     margin-top: 10px;
   }
 
-  .artist-header h1 {
-    font-size: 36px;
-  }
-
-  .artist-header img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .artist-bio h2, .artist-extra h2 {
-    font-size: 32px;
-  }
-
-  .artist-bio p {
-    font-size: 18px;
-  }
-
-  .artist-extra .new-singles, .photos {
+  .photos {
     flex-direction: column;
     align-items: center;
   }
 
-  .single-card, .photo-card {
+  .photo-card {
     width: 80%;
   }
 
@@ -330,3 +407,62 @@ html, body {
     gap: 10px;
   }
 }
+
+  
+.artist-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .artist-bio {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .contact-sidebar {
+    background-color: #e34d4d;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 600px;
+    width: 30%;
+    border-radius: 20px;
+    margin-top: 30px;
+    justify-content: space-between; /* Distribute space evenly */
+  }
+  
+  .contact-item {
+    font-size: 18px;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+  }
+  
+  .contact-item:last-child {
+    border-bottom: none;
+  }
+  
+  .contact-item:hover {
+    background-color: #d43a3a;
+  }
+  
+  /* Additional styles to ensure the layout looks good on smaller screens */
+  @media (max-width: 768px) {
+    .artist-content {
+      flex-direction: column;
+    }
+  
+    .artist-bio {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .contact-sidebar {
+      max-width: 100%;
+    }
+  }
+  
