@@ -4,11 +4,16 @@ import { trigger, style, transition, animate } from '@angular/animations';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-artists',
-  templateUrl: './artists.component.html',
-  styleUrls: ['./artists.component.scss'],
+  selector: 'app-page-faq',
+  templateUrl: './page-faq.component.html',
+  styleUrls: ['./page-faq.component.scss'],
   animations: [
-    
+    trigger('fadeInLogoAndTitle', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('3s', style({ opacity: 1 }))
+      ])
+    ]),
     trigger('fadeInContent', [
       transition(':enter', [
         style({ opacity: 0 }),
@@ -27,31 +32,41 @@ import { ViewportScroller } from '@angular/common';
     ])
   ]
 })
-export class ArtistsComponent implements OnInit {
+export class PageFaqComponent implements OnInit {
   isBurgerMenuOpen = false;
+  showContent = false;
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.showContent = true;
+  }
 
-  toggleBurgerMenu() {
+  toggleBurgerMenu(): void {
     this.isBurgerMenuOpen = !this.isBurgerMenuOpen;
   }
 
-  navigateToMain() {
+  navigateToMain(): void {
     this.router.navigate(['/']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
+      location.reload();
     });
   }
 
-  navigateToArtists() {
+  navigateToArtists(): void {
     this.router.navigate(['/artists']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
 
-  navigateToServices() {
+  navigateToServices(): void {
     this.router.navigate(['/services']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  navigateToFaq() {
+    this.router.navigate(['/faq']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
@@ -64,12 +79,6 @@ export class ArtistsComponent implements OnInit {
 
   navigateToContact() {
     this.router.navigate(['/contact']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
-  }
-
-  navigateToFaq() {
-    this.router.navigate(['/faq']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }

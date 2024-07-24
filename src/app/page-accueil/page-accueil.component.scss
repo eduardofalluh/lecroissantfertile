@@ -135,7 +135,7 @@ html, body {
   color: #ffffff;
   font-size: 40px;
   font-family: Koulen;
-  text-align: left;
+  text-align: center;
   cursor: pointer; /* Ensures the text indicates it is clickable */
   z-index: 1; /* Ensures it is on top */
   position: relative; /* Ensures it is in the correct stacking context */
@@ -149,7 +149,7 @@ html, body {
 
 .text-en-fr {
   color: #ffffff;
-  font-size: 50px;
+  font-size: 30px;
   font-family: Koulen;
   margin-right: 50px;
 }
@@ -386,11 +386,20 @@ html, body {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  
+  .title{
+    font-size: 50px;
+}
+  .navbar {
+    height: auto;
+    padding: 20px;
+}
+  .text-le-croissant-fertile{
+    font-size: 25px;
+}
 
-  .frame-3 {
-    margin-top: 10px;
-  }
+.text-en-fr{
+    font-size: 25px;
+}
 
   .music-cards, .artist-cards {
     flex-direction: column;
@@ -401,5 +410,4 @@ html, body {
     width: 80%;
   }
 
-  
 }

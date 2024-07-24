@@ -8,10 +8,13 @@ import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
 import { ArtistsComponent } from './artists/artists.component';
+import { PageEvenementComponent } from './page-evenement/page-evenement.component';
 
 
 import { ButtonComponent } from './button/button.component';
 import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingModule
+import { PageContactComponent } from './page-contact/page-contact.component';
+import { PageFaqComponent } from './page-faq/page-faq.component';
 // Import SwiperModule
 // import 'swiper/swiper-bundle.min.css';
 
@@ -22,7 +25,10 @@ import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingMod
     ButtonComponent,
     ArtistPageComponent,
     ServicesPageComponent,
-    ArtistsComponent
+    ArtistsComponent,
+    PageEvenementComponent,
+    PageContactComponent,
+    PageFaqComponent,
   ],
   imports: [
     BrowserModule,

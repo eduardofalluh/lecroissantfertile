@@ -1,4 +1,4 @@
-<div class="page-artists">
+<div class="page-evenement">
     <!-- Navbar -->
     <div class="navbar">
         <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
@@ -21,44 +21,28 @@
     </div>
 
     <!-- Cover Section -->
-    <div class="cover" [@fadeInLogoAndTitle]>
-        <div class="title" id="title">
-            <h1>Artists</h1>
+    <div class="cover">
+        <div class="title">
+            <h1>PROCHAIN EVENEMENT</h1>
         </div>
     </div>
 
-    <!-- Artists Section -->
-    <div class="artists-section">
-        <div class="carousel-container">
-            <div class="artist-carousel">
-                <div class="artist-card">
-                    <div class="text-artist-name">ARTIST 1</div>
-                    <img src="assets/images/test-artist.png">
-                </div>
-                <div class="artist-card">
-                    <div class="text-artist-name">ARTIST 2</div>
-                    <img src="assets/images/artist2.jpg">
-                </div>
-                <div class="artist-card">
-                    <div class="text-artist-name">ARTIST 3</div>
-                    <img src="assets/images/artist3.jpg">
-                </div>
-            </div>
-            <div class="artist-carousel">
-                <div class="artist-card">
-                    <div class="text-artist-name">ARTIST 1</div>
-                    <img src="assets/images/artist1.jpg">
-                </div>
-                <div class="artist-card">
-                    <div class="text-artist-name">ARTIST 2</div>
-                    <img src="assets/images/artist2.jpg">
-                </div>
-                <div class="artist-card">
-                    <div class="text-artist-name">ARTIST 3</div>
-                    <img src="assets/images/artist3.jpg">
-                </div>
-            </div>
+    <!-- Events Section -->
+    <div class="events-section">
+        <div class="event-header">
+            <div class="event-column">ARTISTE</div>
+            <div class="event-column">DATE</div>
+            <div class="event-column">ADDRESS</div>
         </div>
+        <div class="event-row" *ngFor="let event of events">
+                <div class="event-column">
+                    <img src="assets/images/artist-placeholder.jpg" alt="Artist">
+                    <div>NOM DE L’ARTISTE</div>
+                </div>
+                <div class="event-column">LUNDI LE 20 JUILLET</div>
+                <div class="event-column">BELMONT, ADRESSE...</div>
+                <button class="btn-buy-tickets">BUY TICKETS</button>
+            </div>
     </div>
 
     <!-- Footer -->

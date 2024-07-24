@@ -4,11 +4,10 @@ import { trigger, style, transition, animate } from '@angular/animations';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-artists',
-  templateUrl: './artists.component.html',
-  styleUrls: ['./artists.component.scss'],
+  selector: 'app-page-contact',
+  templateUrl: './page-contact.component.html',
+  styleUrls: ['./page-contact.component.scss'],
   animations: [
-    
     trigger('fadeInContent', [
       transition(':enter', [
         style({ opacity: 0 }),
@@ -27,25 +26,52 @@ import { ViewportScroller } from '@angular/common';
     ])
   ]
 })
-export class ArtistsComponent implements OnInit {
+export class PageContactComponent implements OnInit {
+  title = 'CONTACTS';
+  showContent = false;
   isBurgerMenuOpen = false;
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.typeTitleText();
+  }
+
+  typeTitleText() {
+    const titleElement = document.getElementById('title');
+    if (titleElement) {
+      const titleText = this.title;
+      let index = 0;
+      titleElement.textContent = '';
+
+      const typeEffect = () => {
+        if (index < titleText.length) {
+          titleElement.textContent += titleText.charAt(index);
+          index++;
+          setTimeout(typeEffect, 150);
+        } else {
+          setTimeout(() => {
+            this.showContent = true;
+          }, 500);
+        }
+      };
+
+      typeEffect();
+    }
+  }
 
   toggleBurgerMenu() {
     this.isBurgerMenuOpen = !this.isBurgerMenuOpen;
   }
 
-  navigateToMain() {
-    this.router.navigate(['/']).then(() => {
+  navigateToArtists() {
+    this.router.navigate(['/artists']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
 
-  navigateToArtists() {
-    this.router.navigate(['/artists']).then(() => {
+  navigateToEvenement() {
+    this.router.navigate(['/evenement']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
@@ -56,8 +82,8 @@ export class ArtistsComponent implements OnInit {
     });
   }
 
-  navigateToEvenement() {
-    this.router.navigate(['/evenement']).then(() => {
+  navigateToMain() {
+    this.router.navigate(['/']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }

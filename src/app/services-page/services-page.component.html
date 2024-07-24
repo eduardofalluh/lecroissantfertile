@@ -13,9 +13,9 @@
         <button class="close-button" (click)="toggleBurgerMenu()">X</button>
         <ul>
           <li (click)="navigateToArtists()">ARTISTES</li>
-          <li>EVENEMENT</li>
+          <li (click)="navigateToEvenement()">EVENEMENT</li>
           <li (click)="navigateToServices()">SERVICES</li>
-          <li>CONTACTEZ NOUS</li>
+          <li (click)="navigateToContact()">CONTACTEZ NOUS</li>
         </ul>
       </div>
     </div>
@@ -103,8 +103,7 @@
         <div class="footer-links">
           <div class="frame-186">
             <div class="text-website-links">Website Links</div>
-            <div class="text-about">About</div>
-            <div class="text-faqs">FAQs</div>
+            <div class="text-faqs" (click)="navigateToFaq()">FAQs</div>
           </div>
           <div class="frame-185">
             <div class="text-social-platforms">Social Platforms</div>

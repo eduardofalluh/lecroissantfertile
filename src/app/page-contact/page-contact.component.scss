@@ -7,11 +7,6 @@ html, body {
   box-sizing: border-box;
 }
 
-h1{
-    font-size: 55px;
-    font-family: Koulen;
-}
-
 .burgerbar {
   height: 40px;
   width: 40px;
@@ -71,7 +66,12 @@ h1{
   to { transform: translateY(0); opacity: 1; }
 }
 
-.page-artists {
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.page-contact {
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
@@ -96,7 +96,7 @@ h1{
   color: #ffffff;
   font-size: 40px;
   font-family: Koulen;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -120,79 +120,102 @@ h1{
   align-items: center;
   background: #000000;
   width: 100%;
-  height: 300px;
+  height: 325px;
 }
 
-.title {
+.cover .title {
   color: #ffffff;
-  font-size: 96px;
+  font-size: 50px;
   font-family: Koulen;
-  text-align: center;
   margin-top: 10px;
 }
 
-.artists-section {
+.contact-section {
   padding: 50px 20px;
-  text-align: center;
 }
 
-.carousel-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.artist-carousel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+.text-about-us,
+.text-our-mission,
+.text-reach-out,
+.team-title {
+  color: #000000;
+  font-size: 42px;
+  font-family: Koulen;
   margin-bottom: 20px;
 }
 
-.artist-card {
-  background: #ffffff;
-  border: 2px solid #e34d4d;
-  width: 400px;
-  height: 400px;
-  margin: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #000000;
-  font-family: Koulen;
-  cursor: pointer;
-  border-radius: 1000px;
-  flex-direction: column;
-  position: relative;
-
-}
-
-.text-artist-name {
+.about-description,
+.mission-description,
+.reach-out-description,
+.team-member {
+  color: #2b2d42;
   font-size: 24px;
   font-family: Koulen;
-  margin-bottom: 10px;
-  position: absolute;
-  top: -30px; /* Position above the circle */
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
+  margin-bottom: 30px;
+  text-align: justify;
 }
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-
-.artist-card img {
+.contact-form input,
+.contact-form textarea {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  display: block; /* Ensures the image is treated as a block element */
-  margin: 0 auto; /* Centers the image */
-  object-fit: cover; /* Ensures the image covers the circle without distortion */
-  object-position: center; /* Ensures the center of the image is displayed */
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
+.contact-form button {
+  background: #e34d4d;
+  color: #ffffff;
+  font-family: Koulen;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
 
+.contact-form button:hover {
+  background: #d43a3a;
+}
 
+.email-info {
+  color: #e34d4d;
+  font-size: 24px;
+  font-family: Koulen;
+  text-align: center;
+}
+
+.team-info {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.team-member {
+  margin-bottom: 20px;
+}
+
+.member-name {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.member-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.member-email {
+  color: #e34d4d;
+  font-size: 18px;
+}
 
 .footer {
   background: #000000;
@@ -213,11 +236,6 @@ h1{
   animation: spin 4s linear infinite;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .footer-description {
   text-align: center;
   margin: 20px 0;
@@ -233,19 +251,30 @@ h1{
   margin: 30px 0;
 }
 
-.frame-186, .frame-185, .frame-5 {
+.frame-186,
+.frame-185,
+.frame-5 {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.text-website-links, .text-social-platforms, .text-languages {
+.text-website-links,
+.text-social-platforms,
+.text-languages {
   font-size: 32px;
   font-family: Koulen;
   margin-bottom: 20px;
 }
 
-.text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
+.text-home,
+.text-pricing,
+.text-about,
+.text-faqs,
+.text-instagram,
+.text-facebook,
+.text-english,
+.text-french {
   font-size: 24px;
   font-family: Koulen;
   margin: 5px 0;
@@ -265,6 +294,23 @@ h1{
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    .about-description{
+        font-size: 20px;
+    }
+
+    .mission-description{
+        font-size: 20px;
+
+    }
+
+    .reach-out-description{
+        font-size: 20px;
+    }
+
+    .title h1{
+        font-size: 50px;
+    }
+
   .navbar {
     height: auto;
     padding: 20px;
@@ -280,16 +326,4 @@ h1{
 .title{
   font-size: 25px;
 }
-
-  .carousel-container, .artist-carousel {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .artist-card {
-    width: 550px;
-    height: 550px;
-  }
-
-  
 }

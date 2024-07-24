@@ -60,4 +60,22 @@ export class ServicesPageComponent implements OnInit {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
+
+  navigateToEvenement() {
+    this.router.navigate(['/evenement']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  navigateToContact() {
+    this.router.navigate(['/contact']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  navigateToFaq() {
+    this.router.navigate(['/faq']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
 }

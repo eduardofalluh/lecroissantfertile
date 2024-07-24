@@ -4,9 +4,9 @@ import { trigger, style, transition, animate } from '@angular/animations';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
-  selector: 'app-page-accueil',
-  templateUrl: './page-accueil.component.html',
-  styleUrls: ['./page-accueil.component.scss'],
+  selector: 'app-page-evenement',
+  templateUrl: './page-evenement.component.html',
+  styleUrls: ['./page-evenement.component.scss'],
   animations: [
     trigger('fadeInContent', [
       transition(':enter', [
@@ -26,25 +26,19 @@ import { ViewportScroller } from '@angular/common';
     ])
   ]
 })
-export class PageAccueilComponent implements OnInit {
-  title = 'LE CROISSANT FERTILE';
+export class PageEvenementComponent implements OnInit {
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
+  title = 'PROCHAIN EVENEMENT';
   showContent = false;
   isBurgerMenuOpen = false;
-
-  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
+  events = [
+    { artist: 'NOM DE L’ARTISTE', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' },
+    { artist: 'NOM DE L’ARTISTE', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' },
+    { artist: 'NOM DE L’ARTISTE', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' }
+  ];
 
   ngOnInit() {
-    this.checkRefresh();
     this.typeTitleText();
-  }
-
-  checkRefresh() {
-    if (sessionStorage.getItem('isRefreshed') === 'true') {
-      sessionStorage.setItem('isRefreshed', 'false');
-    } else {
-      sessionStorage.setItem('isRefreshed', 'true');
-      location.reload();
-    }
   }
 
   typeTitleText() {
@@ -60,10 +54,9 @@ export class PageAccueilComponent implements OnInit {
           index++;
           setTimeout(typeEffect, 150);
         } else {
-          // Once typing is complete, show the rest of the content
           setTimeout(() => {
             this.showContent = true;
-          }, 500); // Delay for smooth transition
+          }, 500);
         }
       };
 
@@ -81,9 +74,16 @@ export class PageAccueilComponent implements OnInit {
     });
   }
 
-  navigateToMain() {
+  navigateToMain(anchor?: string) {
     this.router.navigate(['/']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
+      if (anchor) {
+        const element = document.getElementById(anchor);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        this.viewportScroller.scrollToPosition([0, 0]);
+      }
     });
   }
 
