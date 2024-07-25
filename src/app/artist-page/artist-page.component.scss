@@ -215,9 +215,20 @@ html, body {
   color: #2b2d42;
   font-size: 24px;
   font-family: Koulen;
-  max-width: 800px;
+  max-width: 900px;
   text-align: justify;
 }
+
+
+.biography-container {
+  position: relative;
+}
+
+.biography-text {
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+
 
 h2{
     text-align: center;
@@ -233,7 +244,7 @@ h2{
     background-color: #e34d4d;
     padding: 10px;
     cursor: pointer;
-    width: 150px;
+    width: 50px;
     position: absolute;
     border-radius: 10px;
     color: white;
@@ -258,7 +269,7 @@ h2{
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 30px;
   margin-top: 100px;
   border-radius: 10px;
 }
@@ -438,12 +449,16 @@ h2{
     margin-top: 30px;
     justify-content: space-between; /* Distribute space evenly */
   }
+
+  .contact-sidebar button {
+    margin: 10px 0; /* Adds space between each button */
+  }
+
   
   .contact-item {
-    font-size: 18px;
+    font-size: 20px;
     padding: 15px;
     text-align: center;
-    border-bottom: 1px solid white;
     cursor: pointer;
   }
   
@@ -491,6 +506,8 @@ h2{
     border-radius: 20px;
     margin-top: 30px;
     justify-content: space-between;
+    flex-direction: row; /* Force row layout on mobile */
     }
+
   }
   

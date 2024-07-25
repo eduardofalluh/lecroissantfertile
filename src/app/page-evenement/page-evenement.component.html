@@ -2,11 +2,11 @@
     <!-- Navbar -->
     <div class="navbar">
         <div class="left-section">
-          <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
-          <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
+            <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
+            <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
         </div>
         <div class="frame-3">
-          <div class="text-en-fr">EN/FR</div>
+            <div class="text-en-fr">EN/FR</div>
         </div>
     </div>
 
@@ -29,22 +29,32 @@
         </div>
     </div>
 
+    <!-- Filter Input -->
+    <div class="filter-section">
+        <input type="text" placeholder="Rechercher artiste par nom" [(ngModel)]="filterText" (input)="filterEvents()" />
+    </div>
+
     <!-- Events Section -->
     <div class="events-section">
         <div class="event-header">
             <div class="event-column">ARTISTE</div>
             <div class="event-column">DATE</div>
             <div class="event-column">ADDRESS</div>
+            <div class="event-column">TICKETS</div>
         </div>
-        <div class="event-row" *ngFor="let event of events">
-                <div class="event-column">
-                    <img src="assets/images/artist-placeholder.jpg" alt="Artist">
-                    <div>NOM DE L’ARTISTE</div>
+        <div class="event-row" *ngFor="let event of filteredEvents">
+            <div class="event-column">
+                <div class="event-content">
+                    <img src="assets/images/muhoza.jpg" alt="Artist">
+                    <div>{{ event.artist }}</div>
                 </div>
-                <div class="event-column">LUNDI LE 20 JUILLET</div>
-                <div class="event-column">BELMONT, ADRESSE...</div>
-                <button class="btn-buy-tickets">BUY TICKETS</button>
             </div>
+            <div class="event-column">{{ event.date }}</div>
+            <div class="event-column">{{ event.address }}</div>
+            <div class="event-column">
+                <button class="btn-buy-tickets">ACHETER TICKETS</button>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->

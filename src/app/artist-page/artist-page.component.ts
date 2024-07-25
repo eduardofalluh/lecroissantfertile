@@ -23,14 +23,24 @@ import { ViewportScroller } from '@angular/common';
         style({ opacity: 1 }),
         animate('0.3s ease-out', style({ opacity: 0 }))
       ])
+    ]),
+    trigger('expandCollapse', [
+      transition(':enter', [
+        style({ height: '0px', opacity: 0 }),
+        animate('300ms ease-out', style({ height: '*', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ height: '*', opacity: 1 }),
+        animate('300ms ease-out', style({ height: '0px', opacity: 0 }))
+      ])
     ])
   ]
 })
 export class ArtistPageComponent implements OnInit {
-  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
-
   isBurgerMenuOpen = false;
   showFullBio = false;
+
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
   ngOnInit() {}
 
@@ -49,7 +59,7 @@ export class ArtistPageComponent implements OnInit {
   }
 
   get seeMoreButtonText() {
-    return this.showFullBio ? 'VOIR MOINS' : 'VOIR PLUS';
+    return this.showFullBio ? '▲' : '▼';
   }
 
   navigateToServices() {

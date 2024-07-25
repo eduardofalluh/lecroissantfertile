@@ -182,7 +182,7 @@ h1{
   border-radius: 1000px;
   flex-direction: column;
   position: relative;
-
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
 }
 
 .text-artist-name {
@@ -194,8 +194,22 @@ h1{
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
+
+  transition: opacity 0.3s ease; /* Smooth transition for text opacity */
 }
 
+.artist-card:hover {
+  transform: scale(1.05); /* Slight scaling on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect on hover */
+}
+
+.artist-card:hover img {
+  transform: scale(1.1); /* Scale up the image slightly */
+}
+
+.artist-card:hover .text-artist-name {
+  opacity: 0.7; /* Slightly fade the text on hover */
+}
 
 
 .artist-card img {
@@ -206,6 +220,8 @@ h1{
   margin: 0 auto; /* Centers the image */
   object-fit: cover; /* Ensures the image covers the circle without distortion */
   object-position: center; /* Ensures the center of the image is displayed */
+
+  transition: transform 0.3s ease; /* Smooth transition for image scaling */
 }
 
 

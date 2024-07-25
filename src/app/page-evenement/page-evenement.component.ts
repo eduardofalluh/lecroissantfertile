@@ -28,14 +28,18 @@ import { ViewportScroller } from '@angular/common';
 })
 export class PageEvenementComponent implements OnInit {
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
+
   title = 'PROCHAIN EVENEMENT';
   showContent = false;
   isBurgerMenuOpen = false;
+  filterText = '';
   events = [
-    { artist: 'NOM DE L’ARTISTE', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' },
-    { artist: 'NOM DE L’ARTISTE', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' },
-    { artist: 'NOM DE L’ARTISTE', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' }
+    { artist: 'Muhoza', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' },
+    { artist: 'Shreez', date: 'MARDI LE 21 JUILLET', address: 'BELMONT, ADRESSE...' },
+    { artist: 'Lil Baby', date: 'MERCREDI LE 22 JUILLET', address: 'BELMONT, ADRESSE...' }
   ];
+
+  filteredEvents = this.events;
 
   ngOnInit() {
     this.typeTitleText();
@@ -68,10 +72,10 @@ export class PageEvenementComponent implements OnInit {
     this.isBurgerMenuOpen = !this.isBurgerMenuOpen;
   }
 
-  navigateToArtist() {
-    this.router.navigate(['/artist']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
+  filterEvents() {
+    this.filteredEvents = this.events.filter(event =>
+      event.artist.toLowerCase().includes(this.filterText.toLowerCase())
+    );
   }
 
   navigateToMain(anchor?: string) {
@@ -87,12 +91,6 @@ export class PageEvenementComponent implements OnInit {
     });
   }
 
-  navigateToServices() {
-    this.router.navigate(['/services']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
-  }
-
   navigateToArtists() {
     this.router.navigate(['/artists']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
@@ -101,6 +99,12 @@ export class PageEvenementComponent implements OnInit {
 
   navigateToEvenement() {
     this.router.navigate(['/evenement']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  navigateToServices() {
+    this.router.navigate(['/services']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }

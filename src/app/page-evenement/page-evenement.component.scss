@@ -75,53 +75,86 @@
 }
 
 .events-section {
-    padding: 50px 20px;
-    text-align: center;
+  padding: 50px 20px;
+  text-align: center;
+  border-collapse: collapse; /* Ensures borders merge properly */
 }
 
-.event-header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 24px;
-    font-family: Koulen;
-    margin-bottom: 20px;
-    margin-right: 220px;
+.event-header, .event-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  margin: 0;
+  border-collapse: collapse; /* Ensures borders merge properly */
 }
 
-.event-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 50px;
+.event-header{
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .event-column {
-    flex: 1;
-    text-align: center;
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  border-left: 1px solid #ccc;
 }
 
-.event-column img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
+.event-column:first-child {
+  border-left: none;
+}
+
+.event-column:last-child {
+  border-right: none;
+}
+
+.event-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-content img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .btn-buy-tickets {
-    background: #e34d4d;
-    color: #ffffff;
-    font-family: Koulen;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 25px;
-    margin-right: 70px;
+  background: #e34d4d;
+  color: #ffffff;
+  font-family: Koulen;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 25px;
 }
 
 .btn-buy-tickets:hover {
-    background: #d43a3a;
+  background: #d43a3a;
 }
+
+
+.filter-section {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.filter-section input {
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
 
 .footer {
     background: #000000;
