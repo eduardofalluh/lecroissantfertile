@@ -131,28 +131,42 @@ html, body {
   z-index: 2; /* Ensures the navbar is on top of other content */
 }
 
+.burgerbar, .text-le-croissant-fertile {
+  display: flex;
+  align-items: center;
+}
+
+.burgerbar {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
 .text-le-croissant-fertile {
   color: #ffffff;
   font-size: 40px;
   font-family: Koulen;
-  text-align: center;
-  cursor: pointer; /* Ensures the text indicates it is clickable */
-  z-index: 1; /* Ensures it is on top */
-  position: relative; /* Ensures it is in the correct stacking context */
+  cursor: pointer;
 }
 
 .frame-3 {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  margin-right: 50px;
+  font-size: 40px;
+  font-family: Koulen;
+
 }
 
 .text-en-fr {
   color: #ffffff;
-  font-size: 30px;
+  font-size: 40px;
   font-family: Koulen;
-  margin-right: 50px;
 }
+
+.left-section{
+  display: flex;
+}
+
 
 .hamburger-menu img {
   width: 40px;
@@ -347,6 +361,8 @@ html, body {
   justify-content: space-around;
   width: 100%;
   margin: 30px 0;
+  margin-right: 30px;
+
 }
 
 .frame-186, .frame-185, .frame-5 {
@@ -365,7 +381,9 @@ html, body {
   font-size: 24px;
   font-family: Koulen;
   margin: 5px 0;
+  cursor: pointer;
 }
+
 
 .footer-bottom {
   display: flex;
@@ -441,7 +459,8 @@ html, body {
   flex-direction: row;
   align-items: center;
   display: flex;
-  padding: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 .service-text{
   width: 95%;
@@ -469,3 +488,15 @@ html, body {
   max-width: 400px;
   margin-left: 20px;
 }
+
+
+
+// .service-item {
+//   opacity: 0;
+// }
+
+// .service-item.ng-trigger-slideInLeft,
+// .service-item.ng-trigger-slideInRight {
+//   opacity: 1;
+// }
+

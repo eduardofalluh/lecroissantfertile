@@ -37,6 +37,7 @@ export class PageAccueilComponent implements OnInit {
     this.checkRefresh();
     this.typeTitleText();
   }
+  
 
   checkRefresh() {
     if (sessionStorage.getItem('isRefreshed') === 'true') {
@@ -116,4 +117,5 @@ export class PageAccueilComponent implements OnInit {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
+  
 }
