@@ -40,6 +40,21 @@ export class PageAccueilComponent implements OnInit {
   title = 'LE CROISSANT FERTILE';
   showContent = false;
   isBurgerMenuOpen = false;
+  isAnimationComplete = false; // Track if animation is complete
+
+  artists = [
+    { name: 'Artist Name 1', image: 'muhoza.jpg' },
+    { name: 'Artist Name 2', image: 'muhoza.jpg' },
+    { name: 'Artist Name 3', image: 'muhoza.jpg' },
+    { name: 'Artist Name 3', image: 'muhoza.jpg' },
+    { name: 'Artist Name 3', image: 'muhoza.jpg' },
+    { name: 'Artist Name 3', image: 'muhoza.jpg' },
+    { name: 'Artist Name 3', image: 'muhoza.jpg' },
+    { name: 'Artist Name 3', image: 'muhoza.jpg' },
+    { name: 'Artist Name 3', image: 'muhoza.jpg' },
+    { name: 'Artist Name 3', image: 'muhoza.jpg' },
+
+  ];
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
@@ -47,7 +62,6 @@ export class PageAccueilComponent implements OnInit {
     this.checkRefresh();
     this.typeTitleText();
   }
-  
 
   checkRefresh() {
     if (sessionStorage.getItem('isRefreshed') === 'true') {
@@ -74,6 +88,7 @@ export class PageAccueilComponent implements OnInit {
           // Once typing is complete, show the rest of the content
           setTimeout(() => {
             this.showContent = true;
+            this.isAnimationComplete = true; // Mark animation as complete
           }, 500); // Delay for smooth transition
         }
       };
@@ -87,45 +102,30 @@ export class PageAccueilComponent implements OnInit {
   }
 
   navigateToArtist() {
-    this.router.navigate(['/artist']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
+    this.router.navigate(['/artist']).then(() => window.scrollTo(0, 0));
   }
 
   navigateToMain() {
-    this.router.navigate(['/']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
+    this.router.navigate(['/']).then(() => window.scrollTo(0, 0));
   }
 
   navigateToServices() {
-    this.router.navigate(['/services']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
+    this.router.navigate(['/services']).then(() => window.scrollTo(0, 0));
   }
 
   navigateToArtists() {
-    this.router.navigate(['/artists']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
+    this.router.navigate(['/artists']).then(() => window.scrollTo(0, 0));
   }
 
   navigateToEvenement() {
-    this.router.navigate(['/evenement']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
+    this.router.navigate(['/evenement']).then(() => window.scrollTo(0, 0));
   }
 
   navigateToContact() {
-    this.router.navigate(['/contact']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
+    this.router.navigate(['/contact']).then(() => window.scrollTo(0, 0));
   }
 
   navigateToFaq() {
-    this.router.navigate(['/faq']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
+    this.router.navigate(['/faq']).then(() => window.scrollTo(0, 0));
   }
-  
 }

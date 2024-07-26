@@ -79,4 +79,10 @@ export class ArtistsComponent implements OnInit {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
+
+  navigateToArtist() {
+    this.router.navigate(['/artist']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
 }

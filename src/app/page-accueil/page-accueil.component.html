@@ -74,27 +74,18 @@
       </div>
       <img src="assets/images/service1.png" alt="Distribution">
     </div>
-
-    <div class="our-artists">
+    <div class="artists-carousel">
       <div class="text-nos-artistes">NOS ARTISTES</div>
-      <div class="artist-cards">
-        <div (click)="navigateToArtist()" class="artist-card">
-          <div class="text-artist-name">ARTIST NAME</div>
-        </div>
-        <div class="artist-card">
-          <div class="text-artist-name">ARTIST NAME</div>
-        </div>
-        <div class="artist-card">
-          <div class="text-artist-name">ARTIST NAME</div>
-        </div>
-        <div class="artist-card">
-          <div class="text-artist-name">ARTIST NAME</div>
-        </div>
-        <div class="artist-card">
-          <div class="text-artist-name">ARTIST NAME</div>
-        </div>
-        <div class="artist-card">
-          <div class="text-artist-name">ARTIST NAME</div>
+      <div class="artist-carousel">
+        <div class="artist-carousel-inner">
+          <div *ngFor="let artist of artists" class="artist-card">
+            <img src="assets/images/{{ artist.image }}" alt="{{ artist.name }}">
+            <div class="text-artist-name">{{ artist.name }}</div>
+          </div>
+          <div *ngFor="let artist of artists" class="artist-card">
+            <img src="assets/images/{{ artist.image }}" alt="{{ artist.name }}">
+            <div class="text-artist-name">{{ artist.name }}</div>
+          </div>
         </div>
       </div>
       <div class="artist-buttons">
@@ -102,8 +93,10 @@
         <button class="button" (click)="navigateToContact()">CONTACT NOUS</button>
       </div>
     </div>
+    </div>
+      
 
-    <div class="footer">
+    <div *ngIf="isAnimationComplete" class="footer">
       <div class="footer-content">
         <div class="footer-logo">
           <img src="assets/images/logo.png" alt="Footer Logo" class="spinning-logo">
@@ -135,4 +128,3 @@
       </div>
     </div>
   </div>
-</div>
