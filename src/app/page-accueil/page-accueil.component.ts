@@ -42,6 +42,7 @@ export class PageAccueilComponent implements OnInit {
   isBurgerMenuOpen = false;
   isAnimationComplete = false; // Track if animation is complete
 
+
   artists = [
     { name: 'Artist Name 1', image: 'muhoza.jpg' },
     { name: 'Artist Name 2', image: 'muhoza.jpg' },

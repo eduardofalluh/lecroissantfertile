@@ -29,29 +29,44 @@
       <h1>{{ title }}</h1>
     </div>
   </div>
-  
-  <div class="content-wrapper" *ngIf="showContent" [@fadeInContent]>
-    <div class="whats-new-section">
-      <div class="text-what-s-new">NOUVEAUTE</div>
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="swiper-slide">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="swiper-slide">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="swiper-slide">
-              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-        </div>
+
+
+  <div class="iframe-carousel" *ngIf="showContent" [@fadeInContent]>
+    <div class="text-what-s-new">NOUVEAUTE</div>
+    <div class="iframe-carousel-inner">
+      <div class="iframe-item">
+        <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="iframe-item">
+        <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="iframe-item">
+        <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="iframe-item">
+        <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <!-- Duplicates -->
+      <div class="iframe-item">
+        <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="iframe-item">
+        <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="iframe-item">
+        <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="iframe-item">
+        <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
+  </div>
+  
+  
+  
+    
 
-    <div class="service-item hidden-left" id="about-us"[@fadeInUp]>
+    <div class="service-item hidden-left" id="about-us"[@fadeInUp] *ngIf="showContent" [@fadeInContent]>
       <div class="service-text"  >
         <h2>A propos de nous</h2>
         <p>LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.</p>
@@ -59,7 +74,7 @@
       <img src="assets/images/service1.png" alt="Distribution">
     </div>
 
-    <div class="service-item hidden-right" id="notre-objectif" [@fadeInUp]>
+    <div class="service-item hidden-right" id="notre-objectif" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
       <img src="assets/images/service1.png" alt="Distribution">
       <div class="service-text">
         <h2>Notre objectif</h2>
@@ -67,14 +82,14 @@
       </div>
     </div>
 
-    <div class="service-item hidden-left" id="contactez-nous" [@fadeInUp]>
+    <div class="service-item hidden-left" id="contactez-nous" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
       <div class="service-text">
         <h2>Contactez nous!</h2>
         <p>ÉCRIS-NOUS POUR TOUTE DEMANDE D'INFORMATION, PROPOSITION DE PARTENARIAT OU POUR REJOINDRE NOTRE ÉQUIPE, ON NE MORD PAS (PAR COURRIEL)!</p>
       </div>
       <img src="assets/images/service1.png" alt="Distribution">
     </div>
-    <div class="artists-carousel">
+    <div class="artists-carousel" *ngIf="showContent" [@fadeInContent]>
       <div class="text-nos-artistes">NOS ARTISTES</div>
       <div class="artist-carousel">
         <div class="artist-carousel-inner">
@@ -127,4 +142,3 @@
         </div>
       </div>
     </div>
-  </div>
