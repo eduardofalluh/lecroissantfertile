@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { trigger, style, transition, animate } from '@angular/animations';
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
@@ -22,6 +22,16 @@ import { ViewportScroller } from '@angular/common';
       transition(':leave', [
         style({ opacity: 1 }),
         animate('0.3s ease-out', style({ opacity: 0 }))
+      ])
+    ]),
+    trigger('fadeInUp', [
+      transition('* => *', [
+        query('.service-item', [
+          style({ opacity: 0, transform: 'translateY(50px)' }),
+          stagger(200, [
+            animate('0.8s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
       ])
     ])
   ]

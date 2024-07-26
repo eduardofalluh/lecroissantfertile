@@ -33,6 +33,12 @@ import { ViewportScroller } from '@angular/common';
         style({ height: '*', opacity: 1 }),
         animate('300ms ease-out', style({ height: '0px', opacity: 0 }))
       ])
+    ]),
+    trigger('slideInRight', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)' }),
+        animate('0.5s ease-in', style({ transform: 'translateX(0)' }))
+      ])
     ])
   ]
 })

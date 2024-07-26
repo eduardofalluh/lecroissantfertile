@@ -9,7 +9,6 @@
     </div>
   </div>
   
-  
   <div *ngIf="isBurgerMenuOpen" [@fadeInOut]>
     <div class="burger-menu">
       <button class="close-button" (click)="toggleBurgerMenu()">X</button>
@@ -22,7 +21,6 @@
     </div>
   </div>
   
-  <!-- Cover Section -->
   <div class="cover" [@fadeInLogoAndTitle]>
     <div class="logo">
       <img src="assets/images/logo.png" alt="Logo" class="spinning-logo">
@@ -32,9 +30,7 @@
     </div>
   </div>
   
-  <!-- Content Wrapper -->
   <div class="content-wrapper" *ngIf="showContent" [@fadeInContent]>
-    <!-- What's New Section -->
     <div class="whats-new-section">
       <div class="text-what-s-new">NOUVEAUTE</div>
       <div class="swiper-container">
@@ -55,16 +51,15 @@
       </div>
     </div>
 
-    <!-- About Us Section -->
-    <div class="service-item hidden-left" id="about-us">
-      <div class="service-text">
+    <div class="service-item hidden-left" id="about-us"[@fadeInUp]>
+      <div class="service-text"  >
         <h2>A propos de nous</h2>
         <p>LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.</p>
       </div>
       <img src="assets/images/service1.png" alt="Distribution">
     </div>
 
-    <div class="service-item hidden-right" id="notre-objectif">
+    <div class="service-item hidden-right" id="notre-objectif" [@fadeInUp]>
       <img src="assets/images/service1.png" alt="Distribution">
       <div class="service-text">
         <h2>Notre objectif</h2>
@@ -72,7 +67,7 @@
       </div>
     </div>
 
-    <div class="service-item hidden-left" id="contactez-nous">
+    <div class="service-item hidden-left" id="contactez-nous" [@fadeInUp]>
       <div class="service-text">
         <h2>Contactez nous!</h2>
         <p>ÉCRIS-NOUS POUR TOUTE DEMANDE D'INFORMATION, PROPOSITION DE PARTENARIAT OU POUR REJOINDRE NOTRE ÉQUIPE, ON NE MORD PAS (PAR COURRIEL)!</p>
@@ -80,7 +75,6 @@
       <img src="assets/images/service1.png" alt="Distribution">
     </div>
 
-    <!-- Our Artists Section -->
     <div class="our-artists">
       <div class="text-nos-artistes">NOS ARTISTES</div>
       <div class="artist-cards">
@@ -104,12 +98,11 @@
         </div>
       </div>
       <div class="artist-buttons">
-        <button class="button">ARTISTES</button>
-        <button class="button">CONTACT NOUS</button>
+        <button class="button" (click)="navigateToArtists()">ARTISTES</button>
+        <button class="button" (click)="navigateToContact()">CONTACT NOUS</button>
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
       <div class="footer-content">
         <div class="footer-logo">

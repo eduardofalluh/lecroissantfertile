@@ -225,6 +225,8 @@ html, body {
 .whats-new-section {
   padding: 50px 20px;
   text-align: center;
+  border-bottom: 1px solid #000000;
+
 }
 
 .text-what-s-new {
@@ -260,6 +262,8 @@ html, body {
 .about-us, .our-mission, .reach-out, .our-artists {
   padding: 50px 20px;
   text-align: center;
+  border-top: 1px solid #000000;
+  margin-bottom: 10px;
 }
 
 .text-about-us, .text-our-mission, .text-reach-out, .text-nos-artistes {
@@ -299,13 +303,48 @@ html, body {
   font-family: Koulen;
   cursor: pointer; /* Ensure the cursor indicates a clickable item */
   border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
 
 }
 
 
+.text-artist-name {
+  font-size: 24px;
+  font-family: Koulen;
+  margin-bottom: 20px;
+  position: absolute;
+  top: -30px; /* Position above the circle */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  transition: opacity 0.3s ease; /* Smooth transition for text opacity */
+}
+
 .artist-card:hover {
-  background: #e34d4d;
-  color: #ffffff;
+  transform: scale(1.05); /* Slight scaling on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect on hover */
+}
+
+.artist-card:hover img {
+  transform: scale(1.1); /* Scale up the image slightly */
+}
+
+.artist-card:hover .text-artist-name {
+  opacity: 0.7; /* Slightly fade the text on hover */
+}
+
+
+.artist-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block; /* Ensures the image is treated as a block element */
+  margin: 0 auto; /* Centers the image */
+  object-fit: cover; /* Ensures the image covers the circle without distortion */
+  object-position: center; /* Ensures the center of the image is displayed */
+
+  transition: transform 0.3s ease; /* Smooth transition for image scaling */
 }
 
 
@@ -324,6 +363,7 @@ html, body {
   border: none;
   cursor: pointer;
   font-size: 18px;
+  border-radius: 15px;
 }
 
 .button:hover {
@@ -455,6 +495,41 @@ html, body {
 }
 
 
+/* Animation and hover effects for service items */
+.service-item {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 10px;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-item img {
+  max-width: 400px;
+  margin-left: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover img {
+  transform: scale(1.0);
+}
+
+/* Optional: Set the transition origin to the left or right for the hidden-left and hidden-right classes */
+.hidden-left {
+  transform-origin: left;
+}
+
+.hidden-right {
+  transform-origin: right;
+}
+
+
 .service-item {
   flex-direction: row;
   align-items: center;
@@ -490,13 +565,9 @@ html, body {
 }
 
 
-
-// .service-item {
-//   opacity: 0;
-// }
-
-// .service-item.ng-trigger-slideInLeft,
-// .service-item.ng-trigger-slideInRight {
-//   opacity: 1;
-// }
+.parallax {
+  background: url('/assets/images/logo.png') no-repeat fixed;
+  background-size:cover;
+  margin: 0;
+}
 

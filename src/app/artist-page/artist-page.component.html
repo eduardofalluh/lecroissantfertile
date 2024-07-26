@@ -23,7 +23,7 @@
     </div>
   
     <!-- Artist Content -->
-    <div class="artist-header">
+    <div class="artist-header" [@slideInRight]>
       <h1>Muhoza</h1>
       <img src="assets/images/muhoza.jpg" alt="Muhoza" class="artist-picture">
     </div>
@@ -42,11 +42,14 @@
           </p>
         </div>
         <button class="see-more" id="seeMoreButton" (click)="toggleSeeMore()">{{ seeMoreButtonText }}</button>
-        <button class="btn">VOIR SPECTACLE</button>
+        <div class="btns">
+            <button class="btn" (click)="navigateToEvenement()">VOIR SPECTACLE</button>
         <div class="social-links">
-          <img src="assets/images/spotify-icon.png" alt="Spotify">
-          <img src="assets/images/apple-music-icon.png" alt="Apple Music">
+          <img src="assets/images/spotify.png" alt="Spotify">
+          <img src="assets/images/apple.png" alt="Apple Music">
         </div>
+        </div>
+        
       </div>
       <div class="contact-sidebar">
         <div class="contact-item">CONTACT</div>
@@ -76,14 +79,16 @@
           </div>
         </div>
       </div>
-  
-      <h2>PHOTOS</h2>
+      <div class="pic">
+        <h2>PHOTOS</h2>
       <div class="photos">
         <div class="photo-card"></div>
         <div class="photo-card"></div>
         <div class="photo-card"></div>
         <div class="photo-card"></div>
       </div>
+      </div>
+      
     </div>
   
     <!-- Footer -->
