@@ -524,4 +524,47 @@ h2{
     }
 
   }
-  
+
+
+  .iframe-carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    border-top: 1px solid #000000;
+}
+
+.iframe-carousel-inner {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite; /* Adjust duration to control speed */
+}
+
+.iframe-item {
+    flex: 0 0 25%; /* Show 4 items at a time */
+    display: inline-block;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .iframe-item {
+        flex: 0 0 50%; /* Show 2 items at a time */
+    }
+}
+
+.text-what-s-new {
+    color: #000000;
+    font-size: 42px;
+    font-family: Koulen;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

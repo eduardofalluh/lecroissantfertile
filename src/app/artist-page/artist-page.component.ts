@@ -45,6 +45,8 @@ import { ViewportScroller } from '@angular/common';
 export class ArtistPageComponent implements OnInit {
   isBurgerMenuOpen = false;
   showFullBio = false;
+  showContent = false;
+
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
