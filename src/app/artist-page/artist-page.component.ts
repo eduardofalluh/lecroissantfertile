@@ -46,7 +46,10 @@ export class ArtistPageComponent implements OnInit {
   isBurgerMenuOpen = false;
   showFullBio = false;
   showContent = false;
-
+  isModalOpen = false;
+  iframeCode = '';
+  isPhotoModalOpen = false; // State for the photo upload modal
+  selectedFile: File | null = null;
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
@@ -98,5 +101,41 @@ export class ArtistPageComponent implements OnInit {
     this.router.navigate(['/faq']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  confirmIframe() {
+    if (this.iframeCode) {
+      // Handle the iframe code logic
+      console.log(this.iframeCode);
+      this.closeModal();
+    }
+  }
+
+  openPhotoModal() {
+    this.isPhotoModalOpen = true;
+  }
+
+  closePhotoModal() {
+    this.isPhotoModalOpen = false;
+  }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  confirmPhotoUpload() {
+    if (this.selectedFile) {
+      // Handle the file upload logic
+      console.log(this.selectedFile);
+      this.closePhotoModal();
+    }
   }
 }

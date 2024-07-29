@@ -43,13 +43,12 @@
         </div>
         <button class="see-more" id="seeMoreButton" (click)="toggleSeeMore()">{{ seeMoreButtonText }}</button>
         <div class="btns">
-            <button class="btn" (click)="navigateToEvenement()">VOIR SPECTACLE</button>
-        <div class="social-links">
-          <img src="assets/images/spotify.png" alt="Spotify">
-          <img src="assets/images/apple.png" alt="Apple Music">
+          <button class="btn" (click)="navigateToEvenement()">VOIR SPECTACLE</button>
+          <div class="social-links">
+            <img src="assets/images/spotify.png" alt="Spotify">
+            <img src="assets/images/apple.png" alt="Apple Music">
+          </div>
         </div>
-        </div>
-        
       </div>
       <div class="contact-sidebar">
         <div class="contact-item">CONTACT</div>
@@ -59,46 +58,63 @@
       </div>
     </div>
   
-    <div class="iframe-carousel" [@fadeInContent]>
-        <h1 class="text-what-s-new">NOUVEAUTE</h1>
-        <div class="iframe-carousel-inner">
-          <div class="iframe-item">
-            <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="iframe-item">
-            <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="iframe-item">
-            <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="iframe-item">
-            <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <!-- Duplicates -->
-          <div class="iframe-item">
-            <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="iframe-item">
-            <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="iframe-item">
-            <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div class="iframe-item">
-            <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
+    <!-- Modal for Adding Photo -->
+    <div *ngIf="isPhotoModalOpen" class="modal-overlay">
+      <div class="modal-content">
+        <h2>ARTIST'S PHOTOS</h2>
+        <button class="modal-close-button" (click)="closePhotoModal()">X</button>
+        <div class="modal-body">
+          <h3>UPLOAD PHOTO</h3>
+          <input type="file" (change)="onFileSelected($event)" accept="image/*">
+          <button (click)="confirmPhotoUpload()">Confirm</button>
+          <button (click)="closePhotoModal()">Cancel</button>
         </div>
       </div>
-      <div class="pic">
-        <h2>PHOTOS</h2>
+    </div>
+  
+    <div class="iframe-carousel" [@fadeInContent]>
+      <div class="iframe-header">
+        <h1 class="text-what-s-new">NOUVEAUTE</h1>
+        <button class="btn-add-iframe" (click)="openModal()">Add Iframe</button>
+      </div>
+      <div class="iframe-carousel-inner">
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <!-- Duplicates -->
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  
+    <div class="pic">
+      <h2>PHOTOS</h2>
+      <button class="btn-add-photo" (click)="openPhotoModal()">Upload Photo</button>
       <div class="photos">
         <div class="photo-card"></div>
         <div class="photo-card"></div>
         <div class="photo-card"></div>
         <div class="photo-card"></div>
       </div>
-      </div>
-      
     </div>
   
     <!-- Footer -->
@@ -132,4 +148,5 @@
           <div class="text-rights-reserved">© 2024 All Rights Reserved</div>
         </div>
       </div>
-    </div>  
+    </div>
+</div>

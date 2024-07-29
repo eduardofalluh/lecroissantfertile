@@ -34,7 +34,7 @@ import { ViewportScroller } from '@angular/common';
 })
 export class ServicesPageComponent implements OnInit {
   isBurgerMenuOpen = false;
-
+  isServiceModalOpen = false; // State for service modal
   services = [
     {
       title: 'Distribution (Physique & Numérique)',
@@ -78,6 +78,12 @@ export class ServicesPageComponent implements OnInit {
     }
   ];
 
+  newService = {
+    title: '',
+    description: '',
+    image: ''
+  };
+
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
   ngOnInit() {}
@@ -120,5 +126,33 @@ export class ServicesPageComponent implements OnInit {
     this.router.navigate(['/faq']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
+  }
+
+  openServiceModal() {
+    this.isServiceModalOpen = true;
+  }
+
+  closeServiceModal() {
+    this.isServiceModalOpen = false;
+  }
+
+  onFileSelected(event: any) {
+    if (event.target.files.length > 0) {
+      this.newService.image = event.target.files[0];
+    }
+  }
+
+  confirmService() {
+    if (this.newService.title && this.newService.description && this.newService.image) {
+      // Handle the new service addition logic
+      console.log(this.newService);
+      // Reset the form
+      this.newService = {
+        title: '',
+        description: '',
+        image: ''
+      };
+      this.closeServiceModal();
+    }
   }
 }

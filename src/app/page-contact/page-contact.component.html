@@ -2,11 +2,11 @@
     <!-- Navbar -->
     <div class="navbar">
         <div class="left-section">
-          <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
-          <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
+            <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
+            <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
         </div>
         <div class="frame-3">
-          <div class="text-en-fr">EN/FR</div>
+            <div class="text-en-fr">EN/FR</div>
         </div>
     </div>
 
@@ -70,6 +70,27 @@
                 <div class="member-name">NICOLAS JACQUES</div>
                 <div class="member-title">COORDINATEUR DES OPÉRATIONS | OPERATIONS COORDINATOR</div>
                 <div class="member-email">NICOLAS&#64;CROISSANTFERTILE.COM</div>
+            </div>
+            <button class="btn-add-contact" (click)="openModal()">Add Contact</button>
+        </div>
+    </div>
+
+    <!-- Modal for Adding Contact -->
+    <div *ngIf="isModalOpen" class="modal-overlay">
+        <div class="modal-content">
+            <h2>CONTACT DETAIL</h2>
+            <button class="modal-close-button" (click)="closeModal()">X</button>
+            <div class="modal-body">
+                <form>
+                    <label>NOM</label>
+                    <input type="text" [(ngModel)]="contactName" placeholder="Enter Name" required>
+                    <label>POSTE</label>
+                    <input type="text" [(ngModel)]="contactPoste" placeholder="Enter Poste" required>
+                    <label>COURRIEL</label>
+                    <input type="email" [(ngModel)]="contactEmail" placeholder="Enter Email" required>
+                    <button type="button" (click)="confirmAddContact()">Confirm</button>
+                    <button type="button" (click)="closeModal()">Cancel</button>
+                </form>
             </div>
         </div>
     </div>

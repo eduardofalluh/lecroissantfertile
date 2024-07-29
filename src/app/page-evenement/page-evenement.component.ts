@@ -38,7 +38,13 @@ export class PageEvenementComponent implements OnInit {
   title = 'PROCHAIN EVENEMENT';
   showContent = false;
   isBurgerMenuOpen = false;
+  isModalOpen = false;
   filterText = '';
+  artistName = '';
+  eventDate = '';
+  eventAddress = '';
+  eventImage = '';
+
   events = [
     { artist: 'Muhoza', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' },
     { artist: 'Shreez', date: 'MARDI LE 21 JUILLET', address: 'BELMONT, ADRESSE...' },
@@ -125,5 +131,23 @@ export class PageEvenementComponent implements OnInit {
     this.router.navigate(['/faq']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  confirmAddEvent() {
+    if (this.artistName && this.eventDate && this.eventAddress && this.eventImage) {
+      console.log('Event Artist:', this.artistName);
+      console.log('Event Date:', this.eventDate);
+      console.log('Event Address:', this.eventAddress);
+      console.log('Event Image:', this.eventImage);
+      this.closeModal();
+    }
   }
 }

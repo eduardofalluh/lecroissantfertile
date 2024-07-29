@@ -330,3 +330,124 @@ h1{
 
   
 }
+
+
+// modal================
+/* CSS for the Modal and Button */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  width: 400px;
+  max-width: 90%;
+  max-height: 80vh; /* Make the modal smaller */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 20px;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal-body {
+  max-height: 70vh; /* Make the body smaller */
+  overflow-y: auto;
+}
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-body form label {
+  font-weight: bold;
+}
+
+.modal-body form input,
+.modal-body form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.modal-body form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #db3236; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-body form button:hover {
+  background-color: #c12e30; /* Darker shade on hover */
+}
+
+.modal-body form .cancel-button {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.modal-body form .cancel-button:hover {
+  background-color: #ddd;
+}
+
+/* Button for opening the modal */
+.btn-add-artist {
+  background-color: #db3236;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-artist:hover {
+  background-color: #c12e30;
+}
+
+
+// Filter section\
+
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-section input {
+  width: 50%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+

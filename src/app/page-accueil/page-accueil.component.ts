@@ -41,20 +41,20 @@ export class PageAccueilComponent implements OnInit {
   showContent = false;
   isBurgerMenuOpen = false;
   isAnimationComplete = false; // Track if animation is complete
-
+  isModalOpen = false; // Track modal state
+  iframeCode = ''; // Track iframe code input
 
   artists = [
     { name: 'Artist Name 1', image: 'muhoza.jpg' },
     { name: 'Artist Name 2', image: 'muhoza.jpg' },
     { name: 'Artist Name 3', image: 'muhoza.jpg' },
-    { name: 'Artist Name 3', image: 'muhoza.jpg' },
-    { name: 'Artist Name 3', image: 'muhoza.jpg' },
-    { name: 'Artist Name 3', image: 'muhoza.jpg' },
-    { name: 'Artist Name 3', image: 'muhoza.jpg' },
-    { name: 'Artist Name 3', image: 'muhoza.jpg' },
-    { name: 'Artist Name 3', image: 'muhoza.jpg' },
-    { name: 'Artist Name 3', image: 'muhoza.jpg' },
-
+    { name: 'Artist Name 4', image: 'muhoza.jpg' },
+    { name: 'Artist Name 5', image: 'muhoza.jpg' },
+    { name: 'Artist Name 6', image: 'muhoza.jpg' },
+    { name: 'Artist Name 7', image: 'muhoza.jpg' },
+    { name: 'Artist Name 8', image: 'muhoza.jpg' },
+    { name: 'Artist Name 9', image: 'muhoza.jpg' },
+    { name: 'Artist Name 10', image: 'muhoza.jpg' },
   ];
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
@@ -128,5 +128,20 @@ export class PageAccueilComponent implements OnInit {
 
   navigateToFaq() {
     this.router.navigate(['/faq']).then(() => window.scrollTo(0, 0));
+  }
+
+  // Modal Methods
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  confirmIframe() {
+    // Logic to handle the iframe code, such as storing it or displaying it somewhere
+    console.log('Iframe code:', this.iframeCode);
+    this.closeModal();
   }
 }

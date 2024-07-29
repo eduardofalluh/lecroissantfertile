@@ -36,6 +36,10 @@ export class PageContactComponent implements OnInit {
   title = 'CONTACTS';
   showContent = false;
   isBurgerMenuOpen = false;
+  isModalOpen = false;
+  contactName = '';
+  contactPoste = '';
+  contactEmail = '';
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
@@ -68,6 +72,33 @@ export class PageContactComponent implements OnInit {
 
   toggleBurgerMenu() {
     this.isBurgerMenuOpen = !this.isBurgerMenuOpen;
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    this.clearModalInputs();
+  }
+
+  confirmAddContact() {
+    if (this.contactName && this.contactPoste && this.contactEmail) {
+      // Handle the logic for adding the contact
+      console.log('Contact Name:', this.contactName);
+      console.log('Contact Poste:', this.contactPoste);
+      console.log('Contact Email:', this.contactEmail);
+      this.closeModal();
+    } else {
+      alert('Please fill out all the fields.');
+    }
+  }
+
+  clearModalInputs() {
+    this.contactName = '';
+    this.contactPoste = '';
+    this.contactEmail = '';
   }
 
   navigateToArtists() {

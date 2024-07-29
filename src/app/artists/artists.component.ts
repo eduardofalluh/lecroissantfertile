@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
@@ -8,7 +8,6 @@ import { ViewportScroller } from '@angular/common';
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.scss'],
   animations: [
-    
     trigger('fadeInContent', [
       transition(':enter', [
         style({ opacity: 0 }),
@@ -35,6 +34,26 @@ import { ViewportScroller } from '@angular/common';
 })
 export class ArtistsComponent implements OnInit {
   isBurgerMenuOpen = false;
+  isModalOpen = false;
+  image: string = '';
+  artistName: string = '';
+  biography: string = '';
+  disque: string = '';
+  spectacle: string = '';
+  presse: string = '';
+  edition: string = '';
+  spotifyLink: string = '';
+  appleMusicLink: string = '';
+  filterText = '';
+
+  artists = [
+    { name: 'Artist 1', image: 'assets/images/muhoza.jpg' },
+    { name: 'Artist 2', image: 'assets/images/artist2.jpg' },
+    { name: 'Artist 3', image: 'assets/images/artist3.jpg' },
+    // Add more artist data as needed
+  ];
+
+  filteredArtists = this.artists;
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
@@ -84,5 +103,61 @@ export class ArtistsComponent implements OnInit {
     this.router.navigate(['/artist']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    this.clearModalInputs();
+  }
+
+  confirmAddArtist() {
+    if (this.artistName && this.biography && this.image) {
+      // Handle the logic for adding the artist
+      console.log('Artist Image:', this.image);
+      console.log('Artist Name:', this.artistName);
+      console.log('Biography:', this.biography);
+      console.log('Disque:', this.disque);
+      console.log('Spectacle:', this.spectacle);
+      console.log('Presse:', this.presse);
+      console.log('Edition:', this.edition);
+      console.log('Spotify Link:', this.spotifyLink);
+      console.log('Apple Music Link:', this.appleMusicLink);
+      this.closeModal();
+    } else {
+      alert('Please fill out the required fields.');
+    }
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.image = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  clearModalInputs() {
+    this.image = '';
+    this.artistName = '';
+    this.biography = '';
+    this.disque = '';
+    this.spectacle = '';
+    this.presse = '';
+    this.edition = '';
+    this.spotifyLink = '';
+    this.appleMusicLink = '';
+  }
+
+  filterArtists() {
+    this.filteredArtists = this.artists.filter(artist =>
+      artist.name.toLowerCase().includes(this.filterText.toLowerCase())
+    );
   }
 }

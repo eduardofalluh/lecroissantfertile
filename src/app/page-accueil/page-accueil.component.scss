@@ -604,6 +604,95 @@ html, body {
   }
 }
 
+// MODALE==============
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+/* Modal Close Button */
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #e34d4d;
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Modal Body */
+.modal-body {
+  text-align: center;
+}
+
+/* Input Field in Modal */
+.modal-body input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Modal Buttons */
+.modal-body button {
+  background-color: #e34d4d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.modal-body button:hover {
+  background-color: #d43a3a;
+}
+
+/* Button to open the modal */
+.btn-add-iframe {
+  background: #e34d4d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 20px; /* Adjust as needed for alignment */
+}
+
+.btn-add-iframe:hover {
+  background: #d43a3a;
+}
+
 //IFrame Carousel=====================
 .iframe-carousel {
   overflow: hidden;

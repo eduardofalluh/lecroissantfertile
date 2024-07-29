@@ -40,16 +40,48 @@ import { ViewportScroller } from '@angular/common';
 })
 export class PageFaqComponent implements OnInit {
   isBurgerMenuOpen = false;
-  showContent = false;
+  isModalOpen = false;
+  question: string = '';
+  answer: string = '';
+  faqs: { question: string, answer: string }[] = [
+    { question: 'What is Le Croissant Fertile?', answer: 'LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L\'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.' },
+    // Add more initial FAQs as needed
+    { question: 'What is Le Croissant Fertile?', answer: 'LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L\'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.' },
+    { question: 'What is Le Croissant Fertile?', answer: 'LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L\'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.' },
+    { question: 'What is Le Croissant Fertile?', answer: 'LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L\'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.' }
+
+  ];
 
   constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
   ngOnInit(): void {
-    this.showContent = true;
   }
 
   toggleBurgerMenu(): void {
     this.isBurgerMenuOpen = !this.isBurgerMenuOpen;
+  }
+
+  openModal(): void {
+    this.isModalOpen = true;
+  }
+
+  closeModal(): void {
+    this.isModalOpen = false;
+    this.clearModalInputs();
+  }
+
+  confirmAddFAQ(): void {
+    if (this.question && this.answer) {
+      this.faqs.push({ question: this.question, answer: this.answer });
+      this.closeModal();
+    } else {
+      alert('Please fill out both fields.');
+    }
+  }
+
+  clearModalInputs(): void {
+    this.question = '';
+    this.answer = '';
   }
 
   navigateToMain(): void {
@@ -65,26 +97,26 @@ export class PageFaqComponent implements OnInit {
     });
   }
 
+  navigateToEvenement(): void {
+    this.router.navigate(['/evenement']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
   navigateToServices(): void {
     this.router.navigate(['/services']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
 
-  navigateToFaq() {
-    this.router.navigate(['/faq']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
-  }
-
-  navigateToEvenement() {
-    this.router.navigate(['/evenement']).then(() => {
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
-  }
-
-  navigateToContact() {
+  navigateToContact(): void {
     this.router.navigate(['/contact']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  navigateToFaq(): void {
+    this.router.navigate(['/faq']).then(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }

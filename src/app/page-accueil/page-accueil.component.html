@@ -30,9 +30,26 @@
     </div>
   </div>
 
+  <!-- Modal for Adding Iframe -->
+  <div *ngIf="isModalOpen" class="modal-overlay">
+    <div class="modal-content">
+      <h2>IFRAME</h2>
+      <button class="modal-close-button" (click)="closeModal()">X</button>
+      <div class="modal-body">
+        <h3>ADD IFRAME</h3>
+        <input type="text" [(ngModel)]="iframeCode" placeholder="Enter Iframe Code">
+        <button (click)="confirmIframe()">Confirm</button>
+        <button (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
 
+  <!-- What's New Section -->
   <div class="iframe-carousel" *ngIf="showContent" [@fadeInContent]>
-    <div class="text-what-s-new">NOUVEAUTE</div>
+    <div class="iframe-header">
+      <div class="text-what-s-new">NOUVEAUTE</div>
+      <button class="btn-add-iframe" (click)="openModal()">Add Iframe</button>
+    </div>
     <div class="iframe-carousel-inner">
       <div class="iframe-item">
         <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -62,83 +79,79 @@
     </div>
   </div>
   
+  <div class="service-item hidden-left" id="about-us" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
+    <div class="service-text">
+      <h2>A propos de nous</h2>
+      <p>LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.</p>
+    </div>
+    <img src="assets/images/service1.png" alt="Distribution">
+  </div>
+
+  <div class="service-item hidden-right" id="notre-objectif" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
+    <img src="assets/images/service1.png" alt="Distribution">
+    <div class="service-text">
+      <h2>Notre objectif</h2>
+      <p>DEPUIS NOS DÉBUTS, NOTRE MISSION EST DE SOUTENIR LE DÉVELOPPEMENT ET L’ÉPANOUISSEMENT DES CARRIÈRES MUSICALES, TOUT EN PERMETTANT AUX CRÉATEURS ET INTERPRÈTES DE RESTER ENTIÈREMENT INDÉPENDANTS.</p>
+    </div>
+  </div>
+
+  <div class="service-item hidden-left" id="contactez-nous" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
+    <div class="service-text">
+      <h2>Contactez nous!</h2>
+      <p>ÉCRIS-NOUS POUR TOUTE DEMANDE D'INFORMATION, PROPOSITION DE PARTENARIAT OU POUR REJOINDRE NOTRE ÉQUIPE, ON NE MORD PAS (PAR COURRIEL)!</p>
+    </div>
+    <img src="assets/images/service1.png" alt="Distribution">
+  </div>
   
-  
+  <div class="artists-carousel" *ngIf="showContent" [@fadeInContent]>
+    <div class="text-nos-artistes">NOS ARTISTES</div>
+    <div class="artist-carousel">
+      <div class="artist-carousel-inner">
+        <div *ngFor="let artist of artists" class="artist-card">
+          <img src="assets/images/{{ artist.image }}" alt="{{ artist.name }}">
+          <div class="text-artist-name">{{ artist.name }}</div>
+        </div>
+        <div *ngFor="let artist of artists" class="artist-card">
+          <img src="assets/images/{{ artist.image }}" alt="{{ artist.name }}">
+          <div class="text-artist-name">{{ artist.name }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="artist-buttons">
+      <button class="button" (click)="navigateToArtists()">ARTISTES</button>
+      <button class="button" (click)="navigateToContact()">CONTACT NOUS</button>
+    </div>
+  </div>
     
-
-    <div class="service-item hidden-left" id="about-us"[@fadeInUp] *ngIf="showContent" [@fadeInContent]>
-      <div class="service-text"  >
-        <h2>A propos de nous</h2>
-        <p>LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.</p>
+  <div *ngIf="isAnimationComplete" class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images/logo.png" alt="Footer Logo" class="spinning-logo">
       </div>
-      <img src="assets/images/service1.png" alt="Distribution">
-    </div>
-
-    <div class="service-item hidden-right" id="notre-objectif" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
-      <img src="assets/images/service1.png" alt="Distribution">
-      <div class="service-text">
-        <h2>Notre objectif</h2>
-        <p>DEPUIS NOS DÉBUTS, NOTRE MISSION EST DE SOUTENIR LE DÉVELOPPEMENT ET L’ÉPANOUISSEMENT DES CARRIÈRES MUSICALES, TOUT EN PERMETTANT AUX CRÉATEURS ET INTERPRÈTES DE RESTER ENTIÈREMENT INDÉPENDANTS.</p>
-      </div>
-    </div>
-
-    <div class="service-item hidden-left" id="contactez-nous" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
-      <div class="service-text">
-        <h2>Contactez nous!</h2>
-        <p>ÉCRIS-NOUS POUR TOUTE DEMANDE D'INFORMATION, PROPOSITION DE PARTENARIAT OU POUR REJOINDRE NOTRE ÉQUIPE, ON NE MORD PAS (PAR COURRIEL)!</p>
-      </div>
-      <img src="assets/images/service1.png" alt="Distribution">
-    </div>
-    <div class="artists-carousel" *ngIf="showContent" [@fadeInContent]>
-      <div class="text-nos-artistes">NOS ARTISTES</div>
-      <div class="artist-carousel">
-        <div class="artist-carousel-inner">
-          <div *ngFor="let artist of artists" class="artist-card">
-            <img src="assets/images/{{ artist.image }}" alt="{{ artist.name }}">
-            <div class="text-artist-name">{{ artist.name }}</div>
-          </div>
-          <div *ngFor="let artist of artists" class="artist-card">
-            <img src="assets/images/{{ artist.image }}" alt="{{ artist.name }}">
-            <div class="text-artist-name">{{ artist.name }}</div>
+      <h1 class="footer-description">
+        LE CROISSANT FERTILE
+      </h1>
+      <div class="footer-links">
+        <div class="frame-186">
+          <div class="text-website-links">Website Links</div>
+          <div class="text-faqs" (click)="navigateToFaq()">FAQs</div>
+        </div>
+        <div class="frame-185">
+          <div class="text-social-platforms">Social Platforms</div>
+          <div class="text-instagram">Instagram</div>
+          <div class="text-facebook">Facebook</div>
+        </div>
+        <div class="frame-5">
+          <div class="text-languages">Languages</div>
+          <div class="frame-1">
+            <div class="text-english">English</div>
+            <div class="text-french">French</div>
           </div>
         </div>
       </div>
-      <div class="artist-buttons">
-        <button class="button" (click)="navigateToArtists()">ARTISTES</button>
-        <button class="button" (click)="navigateToContact()">CONTACT NOUS</button>
+      <div class="footer-bottom">
+        <div class="text-rights-reserved">© 2024 All Rights Reserved</div>
       </div>
     </div>
-    </div>
-      
-
-    <div *ngIf="isAnimationComplete" class="footer">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="assets/images/logo.png" alt="Footer Logo" class="spinning-logo">
-        </div>
-        <h1 class="footer-description">
-          LE CROISSANT FERTILE
-        </h1>
-        <div class="footer-links">
-          <div class="frame-186">
-            <div class="text-website-links">Website Links</div>
-            <div class="text-faqs" (click)="navigateToFaq()">FAQs</div>
-          </div>
-          <div class="frame-185">
-            <div class="text-social-platforms">Social Platforms</div>
-            <div class="text-instagram">Instagram</div>
-            <div class="text-facebook">Facebook</div>
-          </div>
-          <div class="frame-5">
-            <div class="text-languages">Languages</div>
-            <div class="frame-1">
-              <div class="text-english">English</div>
-              <div class="text-french">French</div>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div class="text-rights-reserved">© 2024 All Rights Reserved</div>
-        </div>
-      </div>
-    </div>
+  </div>
+</div>
