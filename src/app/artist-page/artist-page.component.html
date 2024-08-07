@@ -71,6 +71,20 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal for Adding Iframe -->
+  <div *ngIf="isModalOpen" class="modal-overlay">
+    <div class="modal-content">
+      <h2>IFRAME</h2>
+      <button class="modal-close-button" (click)="closeModal()">X</button>
+      <div class="modal-body">
+        <h3>ADD IFRAME</h3>
+        <input type="text" [(ngModel)]="iframeCode" placeholder="Enter Iframe Code">
+        <button (click)="confirmIframe()">Confirm</button>
+        <button (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
   
     <div class="iframe-carousel" [@fadeInContent]>
       <div class="iframe-header">
