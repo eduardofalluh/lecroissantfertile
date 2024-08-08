@@ -254,6 +254,29 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .burger-menu li{
+    font-size: 35px !important;
+  }
+  .services-header h1{
+    font-size: 25px !important;
+  }
+  .service-item img{
+    margin-left: 0 !important;
+
+  }
+  .service-item{
+    display: block;
+    left: 0 !important;
+  }
+  .text-website-links, .text-social-platforms, .text-languages {
+    font-size: 20px;
+    font-family: Koulen;
+  }
+  
+  .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
+    font-size: 20px;
+    font-family: Koulen;
+  }
   .navbar {
       height: auto;
       padding: 20px;
@@ -272,6 +295,17 @@
 
   .title {
       font-size: 25px;
+  }
+
+
+  .text-website-links, .text-social-platforms, .text-languages {
+    font-size: 20px;
+    font-family: Koulen;
+  }
+  
+  .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
+    font-size: 20px;
+    font-family: Koulen;
   }
 }
 

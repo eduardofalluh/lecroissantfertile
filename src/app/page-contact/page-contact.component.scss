@@ -155,7 +155,7 @@ html, body {
 .text-reach-out,
 .team-title {
   color: #000000;
-  font-size: 42px;
+  font-size: 25px;
   font-family: Koulen;
   margin-bottom: 20px;
 }
@@ -265,7 +265,6 @@ html, body {
   justify-content: space-around;
   width: 100%;
   margin: 30px 0;
-  margin-right: 30px;
 
 }
 
@@ -314,6 +313,18 @@ html, body {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .burger-menu li{
+    font-size: 35px !important;
+  }
+  .text-website-links, .text-social-platforms, .text-languages {
+    font-size: 20px;
+    font-family: Koulen;
+  }
+  
+  .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
+    font-size: 20px;
+    font-family: Koulen;
+  }
     .about-description{
         font-size: 20px;
     }
@@ -328,7 +339,7 @@ html, body {
     }
 
     .title h1{
-        font-size: 50px;
+        font-size: 25px;
     }
 
   .navbar {

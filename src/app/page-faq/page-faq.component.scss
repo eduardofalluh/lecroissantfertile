@@ -135,7 +135,6 @@
     justify-content: space-around;
     width: 100%;
     margin: 30px 0;
-    margin-right: 30px;
 
 }
 
@@ -172,6 +171,19 @@
 }
 
 @media (max-width: 768px) {
+  .burger-menu li{
+    font-size: 35px !important;
+  }
+
+  .text-website-links, .text-social-platforms, .text-languages {
+    font-size: 20px;
+    font-family: Koulen;
+  }
+  
+  .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
+    font-size: 20px;
+    font-family: Koulen;
+  }
     .navbar {
         height: auto;
         padding: 20px;

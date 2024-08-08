@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { ViewportScroller } from '@angular/common';
@@ -28,10 +28,16 @@ import { ViewportScroller } from '@angular/common';
       transition('* => *', [
         query('.service-item', [
           style({ opacity: 0, transform: 'translateY(50px)' }),
-          stagger(200, [
-            animate('0.8s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          stagger(500, [
+            animate('2s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
           ])
         ], { optional: true })
+      ])
+    ]),
+    trigger('slideInFromLeft', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)', opacity: 0 }),
+        animate('1s ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
       ])
     ])
   ]
@@ -42,7 +48,13 @@ export class PageAccueilComponent implements OnInit {
   isBurgerMenuOpen = false;
   isAnimationComplete = false; // Track if animation is complete
   isModalOpen = false; // Track modal state
+  isLoginModalOpen = false; // Track login modal state
+  isSignUp = false; // Track if the modal is for sign up
   iframeCode = ''; // Track iframe code input
+  name = ''; // Track name input for sign up
+  email = ''; // Track email input for login/sign up
+  password = ''; // Track password input for login/sign up
+  rememberMe = false; // Track remember me checkbox
 
   artists = [
     { name: 'Artist Name 1', image: 'muhoza.jpg' },
@@ -62,6 +74,12 @@ export class PageAccueilComponent implements OnInit {
   ngOnInit() {
     this.checkRefresh();
     this.typeTitleText();
+    this.addScrollEventListener();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    this.handleScroll();
   }
 
   checkRefresh() {
@@ -143,5 +161,48 @@ export class PageAccueilComponent implements OnInit {
     // Logic to handle the iframe code, such as storing it or displaying it somewhere
     console.log('Iframe code:', this.iframeCode);
     this.closeModal();
+  }
+
+  // Login Modal Methods
+  openLoginModal() {
+    this.isLoginModalOpen = true;
+  }
+
+  closeLoginModal() {
+    this.isLoginModalOpen = false;
+  }
+
+  toggleSignUp() {
+    this.isSignUp = !this.isSignUp;
+  }
+
+  confirmSignIn() {
+    // Logic for sign in
+    console.log('Email:', this.email);
+    console.log('Password:', this.password);
+    console.log('Remember me:', this.rememberMe);
+    this.closeLoginModal();
+  }
+
+  confirmSignUp() {
+    // Logic for sign up
+    console.log('Name:', this.name);
+    console.log('Email:', this.email);
+    console.log('Password:', this.password);
+    this.closeLoginModal();
+  }
+
+  addScrollEventListener() {
+    window.addEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  handleScroll() {
+    const slideInElements = document.querySelectorAll('.slide-in');
+    slideInElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('visible');
+      }
+    });
   }
 }

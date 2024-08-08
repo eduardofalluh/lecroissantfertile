@@ -18,6 +18,8 @@
         <li (click)="navigateToServices()">SERVICES</li>
         <li (click)="navigateToContact()">CONTACTEZ NOUS</li>
       </ul>
+
+      <div class="login" (click)="openLoginModal()">CONNECTION ADMIN</div>
     </div>
   </div>
   
@@ -40,6 +42,46 @@
         <input type="text" [(ngModel)]="iframeCode" placeholder="Enter Iframe Code">
         <button (click)="confirmIframe()">Confirm</button>
         <button (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Login -->
+  <div *ngIf="isLoginModalOpen" class="modal-overlay">
+    <div class="modal-content">
+      <div *ngIf="isSignUp">
+        <h2>SIGN UP</h2>
+        <button class="modal-close-button" (click)="closeLoginModal()">X</button>
+        <div class="modal-body">
+          <form>
+            <label>Name*</label>
+            <input type="text" [(ngModel)]="name" placeholder="Enter your name" required>
+            <label>Email*</label>
+            <input type="email" [(ngModel)]="email" placeholder="Enter your email" required>
+            <label>Password*</label>
+            <input type="password" [(ngModel)]="password" placeholder="Create a password" required>
+            <button type="button" (click)="confirmSignUp()">Confirm</button>
+            <button type="button" (click)="closeLoginModal()">Cancel</button>
+          </form>
+        </div>
+      </div>
+      <div *ngIf="!isSignUp">
+        <h2>SIGN IN</h2>
+        <button class="modal-close-button" (click)="closeLoginModal()">X</button>
+        <div class="modal-body">
+          <form>
+            <label>Email*</label>
+            <input type="email" [(ngModel)]="email" placeholder="Enter your email" required>
+            <label>Password*</label>
+            <input type="password" [(ngModel)]="password" placeholder="Enter your password" required>
+            <label>
+              <input type="checkbox" [(ngModel)]="rememberMe"> Remember me
+            </label>
+            <a href="#" (click)="toggleSignUp()">Create account</a>
+            <button type="button" (click)="confirmSignIn()">Confirm</button>
+            <button type="button" (click)="closeLoginModal()">Cancel</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -79,7 +121,7 @@
     </div>
   </div>
   
-  <div class="service-item hidden-left" id="about-us" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
+  <div class="service-item hidden-left slide-in" id="about-us"  *ngIf="showContent" [@slideInFromLeft]>
     <div class="service-text">
       <h2>A propos de nous</h2>
       <p>LE CROISSANT FERTILE EST UNE MAISON DE DISQUES QUI FOURNIT DES SERVICES DE L'INDUSTRIE À DIVERS ARTISTES INDÉPENDANTS ŒUVRANT DANS TOUS LES GENRES MUSICAUX AU QUÉBEC.</p>
@@ -87,15 +129,16 @@
     <img src="assets/images/service1.png" alt="Distribution">
   </div>
 
-  <div class="service-item hidden-right" id="notre-objectif" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
-    <img src="assets/images/service1.png" alt="Distribution">
+  <div class="service-item hidden-left slide-in" id="notre-objectif" *ngIf="showContent" [@slideInFromLeft]>
     <div class="service-text">
       <h2>Notre objectif</h2>
       <p>DEPUIS NOS DÉBUTS, NOTRE MISSION EST DE SOUTENIR LE DÉVELOPPEMENT ET L’ÉPANOUISSEMENT DES CARRIÈRES MUSICALES, TOUT EN PERMETTANT AUX CRÉATEURS ET INTERPRÈTES DE RESTER ENTIÈREMENT INDÉPENDANTS.</p>
     </div>
+    <img src="assets/images/service1.png" alt="Distribution">
+
   </div>
 
-  <div class="service-item hidden-left" id="contactez-nous" [@fadeInUp] *ngIf="showContent" [@fadeInContent]>
+  <div class="service-item hidden-left slide-in" id="contactez-nous"  *ngIf="showContent" [@slideInFromLeft]>
     <div class="service-text">
       <h2>Contactez nous!</h2>
       <p>ÉCRIS-NOUS POUR TOUTE DEMANDE D'INFORMATION, PROPOSITION DE PARTENARIAT OU POUR REJOINDRE NOTRE ÉQUIPE, ON NE MORD PAS (PAR COURRIEL)!</p>
