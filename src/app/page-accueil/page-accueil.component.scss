@@ -458,6 +458,7 @@ html, body {
   }
   .service-item{
     display: block !important;
+    height: auto !important;
   }
   .text-nos-artistes{
     font-size: 30px;
@@ -557,6 +558,7 @@ html, body {
   margin-right: 50px;
   margin: 0 auto;
   padding: 15px;
+  height: 250px;
 }
 .service-text{
   width: 95%;
@@ -588,6 +590,7 @@ html, body {
 .service-item img {
   max-width: 400px;
   margin-left: 20px;
+  height: 240px;
 }
 
 
