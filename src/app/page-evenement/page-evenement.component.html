@@ -25,7 +25,7 @@
     <!-- Cover Section -->
     <div class="cover" [@slideInRight]>
       <div class="title">
-        <h1>PROCHAIN EVENEMENT</h1>
+        <h1>Prochain Événement</h1>
         <button class="btn-add-event" (click)="openModal()">Add Event</button>
       </div>
     </div>
@@ -38,10 +38,10 @@
     <!-- Events Section -->
     <div class="events-section">
       <div class="event-header">
-        <div class="event-column">ARTISTE</div>
-        <div class="event-column">DATE</div>
-        <div class="event-column">ADDRESSE</div>
-        <div class="event-column">TICKETS</div>
+        <div class="event-column">Artiste</div>
+        <div class="event-column">Date</div>
+        <div class="event-column">Adresse</div>
+        <div class="event-column">Tickets</div>
       </div>
       <div class="event-row" *ngFor="let event of filteredEvents">
         <div class="event-column">
@@ -53,7 +53,7 @@
         <div class="event-column">{{ event.date }}</div>
         <div class="event-column">{{ event.address }}</div>
         <div class="event-column">
-          <button class="btn-buy-tickets">ACHETER TICKETS</button>
+          <button class="btn-buy-tickets" (click)="openTicketModal(event)">Acheter Tickets</button>
         </div>
       </div>
     </div>
@@ -61,20 +61,40 @@
     <!-- Modal for Adding Event -->
     <div *ngIf="isModalOpen" class="modal-overlay">
       <div class="modal-content">
-        <h2>EVENT DETAILS</h2>
+        <h2>Event Details</h2>
         <button class="modal-close-button" (click)="closeModal()">X</button>
         <div class="modal-body">
           <form>
-            <label>ARTISTE*</label>
+            <label>Event Name*</label>
+            <input type="text" [(ngModel)]="artistName" placeholder="Enter Event Name" required>
+            <label>Artiste*</label>
             <input type="text" [(ngModel)]="artistName" placeholder="Enter Artiste Name" required>
-            <label>DATE*</label>
+            <label>Date*</label>
             <input type="date" [(ngModel)]="eventDate" placeholder="Enter Date" required>
-            <label>ADDRESS*</label>
+            <label>Adresse*</label>
             <input type="text" [(ngModel)]="eventAddress" placeholder="Enter Address" required>
-            <label>IMAGE*</label>
+            <label>Image*</label>
             <input type="file" [(ngModel)]="eventImage" placeholder="Choose Image" required>
             <button type="button" (click)="confirmAddEvent()">Confirm</button>
             <button type="button" (click)="closeModal()">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Modal for Buying Tickets -->
+    <div *ngIf="isTicketModalOpen" class="modal-overlay">
+      <div class="modal-content">
+        <h2>Buy Tickets</h2>
+        <button class="modal-close-button" (click)="closeTicketModal()">X</button>
+        <div class="modal-body">
+          <form>
+            <label>Number of Tickets*</label>
+            <input type="number" [(ngModel)]="ticketQuantity" placeholder="Enter Number of Tickets" required>
+            <label>Email*</label>
+            <input type="email" [(ngModel)]="ticketEmail" placeholder="Enter your Email" required>
+            <button type="button" (click)="confirmPurchase()">Confirm</button>
+            <button type="button" (click)="closeTicketModal()">Cancel</button>
           </form>
         </div>
       </div>

@@ -3,6 +3,12 @@ import { Router } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { ViewportScroller } from '@angular/common';
 
+interface Event {
+  artist: string;
+  date: string;
+  address: string;
+}
+
 @Component({
   selector: 'app-page-evenement',
   templateUrl: './page-evenement.component.html',
@@ -33,25 +39,31 @@ import { ViewportScroller } from '@angular/common';
   ]
 })
 export class PageEvenementComponent implements OnInit {
-  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
-
-  title = 'PROCHAIN EVENEMENT';
+  title = 'Prochain Événement';
   showContent = false;
   isBurgerMenuOpen = false;
   isModalOpen = false;
+  isTicketModalOpen = false;
   filterText = '';
   artistName = '';
   eventDate = '';
   eventAddress = '';
   eventImage = '';
 
-  events = [
-    { artist: 'Muhoza', date: 'LUNDI LE 20 JUILLET', address: 'BELMONT, ADRESSE...' },
-    { artist: 'Shreez', date: 'MARDI LE 21 JUILLET', address: 'BELMONT, ADRESSE...' },
-    { artist: 'Lil Baby', date: 'MERCREDI LE 22 JUILLET', address: 'BELMONT, ADRESSE...' }
+  // Ticket Modal Variables
+  ticketQuantity = 1;
+  ticketEmail = '';
+  selectedEvent: Event | null = null;
+
+  events: Event[] = [
+    { artist: 'Muhoza', date: 'Lundi le 20 Juillet', address: 'Belmont, Adresse...' },
+    { artist: 'Shreez', date: 'Mardi le 21 Juillet', address: 'Belmont, Adresse...' },
+    { artist: 'Lil Baby', date: 'Mercredi le 22 Juillet', address: 'Belmont, Adresse...' }
   ];
 
   filteredEvents = this.events;
+
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
   ngOnInit() {
     this.typeTitleText();
@@ -148,6 +160,25 @@ export class PageEvenementComponent implements OnInit {
       console.log('Event Address:', this.eventAddress);
       console.log('Event Image:', this.eventImage);
       this.closeModal();
+    }
+  }
+
+  // Ticket Modal Methods
+  openTicketModal(event: Event) {
+    this.selectedEvent = event;
+    this.isTicketModalOpen = true;
+  }
+
+  closeTicketModal() {
+    this.isTicketModalOpen = false;
+  }
+
+  confirmPurchase() {
+    if (this.ticketQuantity > 0 && this.ticketEmail) {
+      console.log('Purchasing tickets for:', this.selectedEvent);
+      console.log('Quantity:', this.ticketQuantity);
+      console.log('Email:', this.ticketEmail);
+      this.closeTicketModal();
     }
   }
 }
