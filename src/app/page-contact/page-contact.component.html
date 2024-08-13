@@ -2,13 +2,15 @@
     <!-- Navbar -->
     <div class="navbar">
         <div class="left-section">
+          <div class="sticky-burgerbar">
             <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
-            <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
+          </div>
+          <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
         </div>
         <div class="frame-3">
-            <div class="text-en-fr">EN/FR</div>
+          <div class="text-en-fr">EN/FR</div>
         </div>
-    </div>
+      </div>
 
     <div *ngIf="isBurgerMenuOpen" [@fadeInOut]>
         <div class="burger-menu">
@@ -17,7 +19,7 @@
                 <li (click)="navigateToMain()">ACCUEIL</li>
 
                 <li (click)="navigateToArtists()">ARTISTES</li>
-                <li (click)="navigateToEvenement()">EVENEMENT</li>
+                <li (click)="navigateToEvenement()">BOUTIQUE</li>
                 <li (click)="navigateToServices()">SERVICES</li>
                 <li (click)="navigateToContact()">CONTACTEZ NOUS</li>
             </ul>
@@ -104,10 +106,14 @@
     <!-- Footer -->
     <div class="footer">
         <div class="footer-content">
-            <div class="footer-logo">
-                <img src="assets/images/logo.png" alt="Footer Logo" class="spinning-logo">
-            </div>
-            <h1 class="footer-description">LE CROISSANT FERTILE</h1>
+            <div class="logo-foot">
+                <h1 class="footer-description">
+                  LE CROISSANT FERTILE
+                </h1>
+                <div class="footer-logo">
+                  <img src="assets/images/logo.png" alt="Footer Logo" class="spinning-logo">
+                </div>
+              </div>
             <div class="footer-links">
                 <div class="frame-186">
                     <div class="text-website-links">Website Links</div>

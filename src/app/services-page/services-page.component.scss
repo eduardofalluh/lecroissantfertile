@@ -6,6 +6,14 @@
   background: #ffffff;
 }
 
+.logo-foot{
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Ensure text inside is centered */
+  padding: 20px;
+}
+
 /* Navbar Styles */
 .navbar {
   padding: 10px 20px;
@@ -37,6 +45,8 @@
   font-size: 40px;
   font-family: Koulen;
   cursor: pointer;
+  margin-left: 80px;
+
 }
 
 .frame-3 {
@@ -158,7 +168,7 @@
 }
 
 .service-text {
-  width: 95%;
+  width: 100%;
 }
 
 .service-item h2 {
@@ -213,7 +223,7 @@
 }
 
 .footer-logo img {
-  max-width: 100%;
+  max-width: 30%;
   height: auto;
   animation: spin 4s linear infinite;
 }
@@ -279,8 +289,50 @@
   margin-bottom: 50px;
 }
 
+
+/* Sticky burger bar container */
+.sticky-burgerbar {
+  position: fixed; /* Fix the position */
+  top: 20px; /* Adjust this to control how far from the top you want the bar */
+  left: 20px; /* Adjust this to control how far from the left you want the bar */
+  z-index: 1000;
+  width: 60px; /* Adjust size as needed */
+  height: 60px; /* Adjust size as needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background with some transparency */
+  border-radius: 50%; /* Make it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for better visibility */
+}
+
+/* Burger bar image */
+.sticky-burgerbar .burgerbar {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image scales properly */
+  cursor: pointer;
+}
+
+/* Optional: Add hover effect */
+.sticky-burgerbar:hover {
+  background-color: rgba(227, 77, 77, 0.9); /* Change background color on hover */
+}
+
+
+
+
+@media (max-width: 460px) {
+  .navbar{
+    height: auto !important;
+  }
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
+    .navbar{
+        height: 65px !important;
+
+    }
   .button{
     font-size: 20px !important;
   }
@@ -322,6 +374,8 @@
   }
   .text-le-croissant-fertile {
       font-size: 25px;
+      margin-left: 60px;
+
   }
 
   .text-en-fr {

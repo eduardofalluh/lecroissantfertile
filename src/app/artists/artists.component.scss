@@ -109,6 +109,8 @@ h1{
   font-size: 40px;
   font-family: Koulen;
   cursor: pointer;
+  margin-left: 80px;
+
 }
 
 .frame-3 {
@@ -253,7 +255,7 @@ h1{
 }
 
 .footer-logo img {
-  max-width: 100%;
+  max-width: 30%;
   height: auto;
   animation: spin 4s linear infinite;
 }
@@ -312,8 +314,56 @@ h1{
   margin-left: 30px;
 }
 
+
+/* Sticky burger bar container */
+.sticky-burgerbar {
+  position: fixed; /* Fix the position */
+  top: 20px; /* Adjust this to control how far from the top you want the bar */
+  left: 20px; /* Adjust this to control how far from the left you want the bar */
+  z-index: 1000;
+  width: 60px; /* Adjust size as needed */
+  height: 60px; /* Adjust size as needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background with some transparency */
+  border-radius: 50%; /* Make it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for better visibility */
+}
+
+/* Burger bar image */
+.sticky-burgerbar .burgerbar {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image scales properly */
+  cursor: pointer;
+}
+
+/* Optional: Add hover effect */
+.sticky-burgerbar:hover {
+  background-color: rgba(227, 77, 77, 0.9); /* Change background color on hover */
+}
+
+.logo-foot{
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Ensure text inside is centered */
+  padding: 20px;
+}
+
+
+@media (max-width: 460px) {
+  .navbar{
+    height: auto !important;
+  }
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
+    .navbar{
+        height: 65px !important;
+
+    }
   .text-rights-reserved{
     margin-left: 10px !important;
   }
@@ -337,6 +387,8 @@ h1{
 }
   .text-le-croissant-fertile{
     font-size: 25px;
+    margin-left: 60px !important;
+
 }
 
 .text-en-fr{
@@ -350,7 +402,24 @@ h1{
   .carousel-container, .artist-carousel {
     flex-direction: column;
     align-items: center;
+
   }
+
+  .artist-carousel {
+    grid-template-columns: 1fr !important; /* 1 column layout */
+  }
+
+  .artist-carousel {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column layout */
+    gap: 20px; /* Adjust the gap between items as needed */
+    margin-top: 20px; /* Optional: Add margin at the top */
+    margin: 0 auto;
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    text-align: center; /* Center text within items */
+  }
+  
 
   .artist-card {
     width: 350px;

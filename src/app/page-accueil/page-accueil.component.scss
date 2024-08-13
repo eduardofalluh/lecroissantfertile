@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
 @import "../tokens.scss";
 
 html, body {
@@ -5,6 +7,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
 }
 
 .burgerbar {
@@ -147,7 +150,7 @@ html, body {
 .text-le-croissant-fertile {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   cursor: pointer;
   margin-left: 80px;
 }
@@ -157,15 +160,13 @@ html, body {
   align-items: center;
   margin-right: 50px;
   font-size: 40px;
-  font-family: Koulen;
-
+  font-family: 'Roboto Slab', serif;
 }
 
 .text-en-fr {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
-}
+  font-family: 'Roboto Slab', serif;}
 
 .left-section{
   display: flex;
@@ -206,8 +207,8 @@ html, body {
 .title {
   color: #ffffff;
   font-size: 96px;
-  font-family: Koulen;
-  text-align: center;
+  font-family: 'Roboto Slab', serif;
+    text-align: center;
   margin-top: 10px;
 }
 
@@ -236,7 +237,7 @@ html, body {
 .text-what-s-new {
   color: #000000;
   font-size: 42px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 30px;
   text-align: center;
   margin-top: 30px;
@@ -258,8 +259,8 @@ html, body {
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  font-family: Koulen;
-}
+  font-family: 'Roboto Slab', serif;
+  }
 
 .text-new-single, .text-song-name, .text-artist-name {
   margin: 16px 0;
@@ -275,7 +276,7 @@ html, body {
 .text-about-us, .text-our-mission, .text-reach-out, .text-nos-artistes {
   color: #000000;
   font-size: 42px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
   text-align: center;
   margin-top: 10px;
@@ -297,7 +298,7 @@ html, body {
 .about-description, .mission-description, .reach-out-description {
   color: #2b2d42;
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin: 0 auto;
   max-width: 800px;
   text-align: justify;
@@ -319,7 +320,7 @@ html, body {
   justify-content: center;
   align-items: center;
   color: #000000;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   cursor: pointer; /* Ensure the cursor indicates a clickable item */
   border-radius: 50%;
   margin-top: 20px;
@@ -328,7 +329,7 @@ html, body {
 
 .text-artist-name {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
   position: absolute;
   top: -28px; /* Position above the circle */
@@ -374,7 +375,7 @@ html, body {
 .button {
   background: #e34d4d;
   color: #ffffff;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;  
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -400,14 +401,14 @@ html, body {
 }
 
 .footer-logo img {
-  max-width: 100%;
+  max-width: 30%;
   height: auto;
 }
 
 .footer-description {
   text-align: center;
   margin: 20px 0;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   max-width: 800px;
   text-align: justify;
 }
@@ -426,15 +427,23 @@ html, body {
   align-items: center;
 }
 
+.logo-foot{
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Ensure text inside is centered */
+  padding: 20px;
+}
+
 .text-website-links, .text-social-platforms, .text-languages {
   font-size: 32px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
 }
 
 .text-home, .text-pricing, .text-about, .text-faqs, .text-instagram, .text-facebook, .text-tiktok, .text-twitter, .text-english, .text-french {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin: 5px 0;
   cursor: pointer;
 }
@@ -449,7 +458,7 @@ html, body {
 
 .text-rights-reserved {
   font-size: 16px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-left: 30px;
 }
 
@@ -460,8 +469,10 @@ html, body {
 
 .text-terms, .text-privacy, .text-cookies {
   font-size: 16px;
-  font-family: Koulen;
-}
+  font-family: 'Roboto Slab', serif;
+  }
+
+  
 
 @media (max-width: 460px) {
   .navbar{
@@ -494,12 +505,12 @@ html, body {
   }
   .text-website-links, .text-social-platforms, .text-languages {
     font-size: 20px;
-    font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   }
   
   .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
     font-size: 20px;
-    font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   }
   .title{
     font-size: 50px;
@@ -591,7 +602,7 @@ html, body {
   height: 250px;
 }
 .service-text{
-  width: 95%;
+  width: 100%;
 }
 
 .service-text p{
@@ -606,13 +617,13 @@ html, body {
 
 .service-item h2 {
   font-size: 42px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   color: #000000;
 }
 
 .service-item p {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   color: #2b2d42;
   text-align: justify;
 }
@@ -807,7 +818,7 @@ html, body {
 
 @media (max-width: 768px) {
   .artist-carousel-inner {
-    animation: scroll 8s linear infinite !important;
+    animation: scroll 4s linear infinite !important;
   }
   .iframe-item {
     flex: 0 0 50%; /* Show 2items at a time */
@@ -889,8 +900,8 @@ html, body {
 }
 
 .modal-body h3 {
-  font-family: Koulen;
-  font-size: 24px;
+  font-family: 'Roboto Slab', serif;
+    font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -961,7 +972,7 @@ html, body {
 .login {
   cursor: pointer;
   padding: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   font-size: 12px;
   color: #fff;
   border-radius: 8px;

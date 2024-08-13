@@ -1,207 +1,214 @@
-<div class="page-acceuil">
-  <div class="navbar">
-    <div class="left-section">
-      <div class="sticky-burgerbar">
-        <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
-      </div>
-      <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
-    </div>
-    <div class="frame-3">
-      <div class="text-en-fr">EN/FR</div>
-    </div>
-  </div>
-  
-  
-  
-  
-  <div *ngIf="isBurgerMenuOpen" [@fadeInOut]>
-    <div class="burger-menu">
-      <button class="close-button" (click)="toggleBurgerMenu()">X</button>
-      <ul>
-        <li (click)="navigateToMain()">ACCUEIL</li>
-        <li (click)="navigateToArtists()">ARTISTES</li>
-        <li (click)="navigateToEvenement()">EVENEMENT</li>
-        <li (click)="navigateToServices()">SERVICES</li>
-        <li (click)="navigateToContact()">CONTACTEZ NOUS</li>
-      </ul>
-      <div class="login" (click)="openLoginModal()">CONNECTION ADMIN</div>
-    </div>
-  </div>
-  
-  <div class="cover" [@fadeInLogoAndTitle]>
-    <div class="logo">
-      <img src="assets/images/logo.png" alt="Logo" class="spinning-logo">
-    </div>
-    <div class="title" id="title">
-      <h1>{{ title }}</h1>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Croissant Fertile</title>
 
-  <!-- Modal for Adding Iframe -->
-  <div *ngIf="isModalOpen" class="modal-overlay">
-    <div class="modal-content">
-      <h2>IFRAME</h2>
-      <button class="modal-close-button" (click)="closeModal()">X</button>
-      <div class="modal-body">
-        <h3>ADD IFRAME</h3>
-        <input type="text" [(ngModel)]="iframeCode" placeholder="Enter Iframe Code">
-        <button (click)="confirmIframe()">Confirm</button>
-        <button (click)="closeModal()">Cancel</button>
-      </div>
-    </div>
-  </div>
+    <!-- Import Roboto Slab font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Modal for Login -->
-  <div *ngIf="isLoginModalOpen" class="modal-overlay">
-    <div class="modal-content">
-      <div *ngIf="isSignUp">
-        <h2>SIGN UP</h2>
-        <button class="modal-close-button" (click)="closeLoginModal()">X</button>
-        <div class="modal-body">
-          <form>
-            <label>Name*</label>
-            <input type="text" [(ngModel)]="name" placeholder="Enter your name" required>
-            <label>Email*</label>
-            <input type="email" [(ngModel)]="email" placeholder="Enter your email" required>
-            <label>Password*</label>
-            <input type="password" [(ngModel)]="password" placeholder="Create a password" required>
-            <button type="button" (click)="confirmSignUp()">Confirm</button>
-            <button type="button" (click)="closeLoginModal()">Cancel</button>
-          </form>
+    <!-- Add your component-specific styles -->
+    <style>
+        /* The content of your `page-acceuil.component.scss` should go here, if needed */
+    </style>
+</head>
+<body>
+  <div class="page-acceuil">
+    <div class="navbar">
+      <div class="left-section">
+        <div class="sticky-burgerbar">
+          <img src="assets/images/burger-bar.jpg" class="burgerbar" (click)="toggleBurgerMenu()">
         </div>
+        <div class="text-le-croissant-fertile" (click)="navigateToMain()">LE CROISSANT FERTILE</div>
       </div>
-      <div *ngIf="!isSignUp">
-        <h2>SIGN IN</h2>
-        <button class="modal-close-button" (click)="closeLoginModal()">X</button>
+      <div class="frame-3">
+        <div class="text-en-fr">EN/FR</div>
+      </div>
+    </div>
+
+    <div *ngIf="isBurgerMenuOpen" [@fadeInOut]>
+      <div class="burger-menu">
+        <button class="close-button" (click)="toggleBurgerMenu()">X</button>
+        <ul>
+          <li (click)="navigateToMain()">ACCUEIL</li>
+          <li (click)="navigateToArtists()">ARTISTES</li>
+          <li (click)="navigateToEvenement()">BOUTIQUE</li>
+          <li (click)="navigateToServices()">SERVICES</li>
+          <li (click)="navigateToContact()">CONTACTEZ NOUS</li>
+        </ul>
+        <div class="login" (click)="openLoginModal()">CONNECTION ADMIN</div>
+      </div>
+    </div>
+
+    <div class="cover" [@fadeInLogoAndTitle]>
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="Logo" class="spinning-logo">
+      </div>
+      <div class="title" id="title">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
+
+    <!-- Modal for Adding Iframe -->
+    <div *ngIf="isModalOpen" class="modal-overlay">
+      <div class="modal-content">
+        <h2>IFRAME</h2>
+        <button class="modal-close-button" (click)="closeModal()">X</button>
         <div class="modal-body">
-          <form>
-            <label>Email*</label>
-            <input type="email" [(ngModel)]="email" placeholder="Enter your email" required>
-            <label>Password*</label>
-            <input type="password" [(ngModel)]="password" placeholder="Enter your password" required>
-            <label>
-              <input type="checkbox" [(ngModel)]="rememberMe"> Remember me
-            </label>
-            <a href="#" (click)="toggleSignUp()">Create account</a>
-            <button type="button" (click)="confirmSignIn()">Confirm</button>
-            <button type="button" (click)="closeLoginModal()">Cancel</button>
-          </form>
+          <h3>ADD IFRAME</h3>
+          <input type="text" [(ngModel)]="iframeCode" placeholder="Enter Iframe Code">
+          <button (click)="confirmIframe()">Confirm</button>
+          <button (click)="closeModal()">Cancel</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- What's New Section -->
-  <div class="iframe-carousel" *ngIf="showContent" [@fadeInContent]>
-    <div class="iframe-header">
-      <div class="text-what-s-new">NOUVEAUTÉ</div>
-      <button class="btn-add-iframe" (click)="openModal()">Add Iframe</button>
-    </div>
-    <div class="iframe-carousel-inner">
-      <div class="iframe-item">
-        <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <div class="iframe-item">
-        <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <div class="iframe-item">
-        <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <div class="iframe-item">
-        <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <div class="iframe-item">
-        <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <div class="iframe-item">
-        <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <div class="iframe-item">
-        <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-      <div class="iframe-item">
-        <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    </div>
-  </div>
-  
-  <div class="service-item hidden-left slide-in" id="about-us" *ngIf="showContent" [@slideInFromLeft]>
-    <div class="service-text">
-      <h2>À propos de nous</h2>
-      <p>Le Croissant Fertile est une maison de disques qui fournit des services de l'industrie à divers artistes indépendants œuvrant dans tous les genres musicaux au Québec.</p>
-    </div>
-    <img src="assets/images/service1.png" alt="Distribution">
-  </div>
-  
-  <div class="service-item hidden-left slide-in" id="notre-objectif" *ngIf="showContent" [@slideInFromLeft]>
-    <div class="service-text">
-      <h2>Notre objectif</h2>
-      <p>Depuis nos débuts, notre mission est de soutenir le développement et l’épanouissement des carrières musicales, tout en permettant aux créateurs et interprètes de rester entièrement indépendants.</p>
-    </div>
-    <img src="assets/images/service1.png" alt="Distribution">
-  </div>
-  
-  <!-- <div class="service-item hidden-left slide-in" id="contactez-nous" *ngIf="showContent" [@slideInFromLeft]>
-    <div class="service-text">
-      <h2>Contactez-nous</h2>
-      <p>Écris-nous pour toute demande d'information, proposition de partenariat ou pour rejoindre notre équipe, on ne mord pas (par courriel)!</p>
-    </div>
-    <img src="assets/images/service1.png" alt="Distribution">
-  </div> -->
-  
-  <!-- Artists Section -->
-  <div class="artists-carousel" *ngIf="showContent" [@fadeInContent]>
-    <div class="text-nos-artistes">NOS ARTISTES</div>
-    <div class="artist-carousel">
-      <div *ngFor="let artist of artists; let i = index" 
-           class="artist-card" 
-           [class.active]="i === currentArtistIndex" 
-           [@fadeInOutArtist]="i === currentArtistIndex ? 'in' : 'out'">
-        <img [src]="'assets/images/' + artist.image" [alt]="artist.name">
-        <div class="text-artist-name">{{ artist.name }}</div>
+    <!-- Modal for Login -->
+    <div *ngIf="isLoginModalOpen" class="modal-overlay">
+      <div class="modal-content">
+        <div *ngIf="isSignUp">
+          <h2>SIGN UP</h2>
+          <button class="modal-close-button" (click)="closeLoginModal()">X</button>
+          <div class="modal-body">
+            <form>
+              <label>Name*</label>
+              <input type="text" [(ngModel)]="name" placeholder="Enter your name" required>
+              <label>Email*</label>
+              <input type="email" [(ngModel)]="email" placeholder="Enter your email" required>
+              <label>Password*</label>
+              <input type="password" [(ngModel)]="password" placeholder="Create a password" required>
+              <button type="button" (click)="confirmSignUp()">Confirm</button>
+              <button type="button" (click)="closeLoginModal()">Cancel</button>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="!isSignUp">
+          <h2>SIGN IN</h2>
+          <button class="modal-close-button" (click)="closeLoginModal()">X</button>
+          <div class="modal-body">
+            <form>
+              <label>Email*</label>
+              <input type="email" [(ngModel)]="email" placeholder="Enter your email" required>
+              <label>Password*</label>
+              <input type="password" [(ngModel)]="password" placeholder="Enter your password" required>
+              <label>
+                <input type="checkbox" [(ngModel)]="rememberMe"> Remember me
+              </label>
+              <a href="#" (click)="toggleSignUp()">Create account</a>
+              <button type="button" (click)="confirmSignIn()">Confirm</button>
+              <button type="button" (click)="closeLoginModal()">Cancel</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="artist-buttons">
-      <button class="button" (click)="navigateToArtists()">ARTISTS</button>
-      <button class="button" (click)="navigateToContact()">CONTACTEZ NOUS</button>
+
+    <!-- What's New Section -->
+    <div class="iframe-carousel" *ngIf="showContent" [@fadeInContent]>
+      <div class="iframe-header">
+        <div class="text-what-s-new">NOUVEAUTÉ</div>
+        <button class="btn-add-iframe" (click)="openModal()">Add Iframe</button>
+      </div>
+      <div class="iframe-carousel-inner">
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="iframe-item">
+          <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
     </div>
-  </div>
     
-  <div *ngIf="isAnimationComplete" class="footer">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="assets/images/logo.png" alt="Footer Logo" class="spinning-logo">
+    <div class="service-item hidden-left slide-in" id="about-us" *ngIf="showContent" [@slideInFromLeft]>
+      <div class="service-text">
+        <h2>À propos de nous</h2>
+        <p>Le Croissant Fertile est une maison de disques qui fournit des services de l'industrie à divers artistes indépendants œuvrant dans tous les genres musicaux au Québec.</p>
       </div>
-      <h1 class="footer-description">
-        LE CROISSANT FERTILE
-      </h1>
-      <div class="footer-links">
-        <div class="frame-186">
-          <div class="text-website-links">Website Links</div>
-          <div class="text-faqs" (click)="navigateToFaq()">FAQs</div>
-        </div>
-        <div class="frame-185">
-          <div class="text-social-platforms">Social Platforms</div>
-          <div class="text-instagram">
-            <a href="https://www.instagram.com/elcroissantfertile/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </div>
-          
-          <div class="text-facebook">
-            <a href="https://www.facebook.com/profile.php?id=61551492292716" target="_blank" rel="noopener noreferrer">Facebook</a>
-          </div>
-          
-        </div>
-        <div class="frame-5">
-          <div class="text-languages">Languages</div>
-          <div class="frame-1">
-            <div class="text-english">English</div>
-            <div class="text-french">French</div>
-          </div>
+    </div>
+    
+    <div class="service-item hidden-left slide-in" id="notre-objectif" *ngIf="showContent" [@slideInFromLeft]>
+      <div class="service-text">
+        <h2>Notre objectif</h2>
+        <p>Depuis nos débuts, notre mission est de soutenir le développement et l’épanouissement des carrières musicales, tout en permettant aux créateurs et interprètes de rester entièrement indépendants.</p>
+      </div>
+    </div>
+    
+    <div class="artists-carousel" *ngIf="showContent" [@fadeInContent]>
+      <div class="text-nos-artistes">NOS ARTISTES</div>
+      <div class="artist-carousel">
+        <div *ngFor="let artist of artists; let i = index" 
+             class="artist-card" 
+             [class.active]="i === currentArtistIndex" 
+             [@fadeInOutArtist]="i === currentArtistIndex ? 'in' : 'out'">
+          <img [src]="'assets/images/' + artist.image" [alt]="artist.name">
+          <div class="text-artist-name">{{ artist.name }}</div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div class="text-rights-reserved">© 2024 All Rights Reserved</div>
+      <div class="artist-buttons">
+        <button class="button" (click)="navigateToArtists()">ARTISTS</button>
+        <button class="button" (click)="navigateToContact()">CONTACTEZ NOUS</button>
+      </div>
+    </div>
+      
+    <div *ngIf="isAnimationComplete" class="footer">
+      <div class="footer-content">
+        <div class="logo-foot">
+          <h1 class="footer-description">
+            LE CROISSANT FERTILE
+          </h1>
+          <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="Footer Logo" class="spinning-logo">
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <div class="frame-186">
+            <div class="text-website-links">Website Links</div>
+            <div class="text-faqs" (click)="navigateToFaq()">FAQs</div>
+          </div>
+          <div class="frame-185">
+            <div class="text-social-platforms">Social Platforms</div>
+            <div class="text-instagram">
+              <a href="https://www.instagram.com/elcroissantfertile/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+            
+            <div class="text-facebook">
+              <a href="https://www.facebook.com/profile.php?id=61551492292716" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+            
+          </div>
+          <div class="frame-5">
+            <div class="text-languages">Languages</div>
+            <div class="frame-1">
+              <div class="text-english">English</div>
+              <div class="text-french">French</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="text-rights-reserved">© 2024 All Rights Reserved</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>
+</html>
