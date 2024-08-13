@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
-import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-page-accueil',
@@ -14,30 +13,13 @@ import { ViewportScroller } from '@angular/common';
         animate('1s', style({ opacity: 1 }))
       ])
     ]),
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('0.3s ease-in', style({ opacity: 1 }))
+    trigger('fadeInOutArtist', [
+      transition('in => out', [
+        animate('1s', style({ opacity: 0, transform: 'scale(0.8) translateX(-100%)' }))
       ]),
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate('0.3s ease-out', style({ opacity: 0 }))
-      ])
-    ]),
-    trigger('fadeInUp', [
-      transition('* => *', [
-        query('.service-item', [
-          style({ opacity: 0, transform: 'translateY(50px)' }),
-          stagger(500, [
-            animate('2s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-          ])
-        ], { optional: true })
-      ])
-    ]),
-    trigger('slideInFromLeft', [
-      transition(':enter', [
-        style({ transform: 'translateX(-100%)', opacity: 0 }),
-        animate('1s ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      transition('out => in', [
+        style({ opacity: 0, transform: 'scale(0.8) translateX(100%)' }),
+        animate('1s', style({ opacity: 1, transform: 'scale(1) translateX(0)' }))
       ])
     ])
   ]
@@ -46,15 +28,15 @@ export class PageAccueilComponent implements OnInit {
   title = 'LE CROISSANT FERTILE';
   showContent = false;
   isBurgerMenuOpen = false;
-  isAnimationComplete = false; // Track if animation is complete
-  isModalOpen = false; // Track modal state
-  isLoginModalOpen = false; // Track login modal state
-  isSignUp = false; // Track if the modal is for sign up
-  iframeCode = ''; // Track iframe code input
-  name = ''; // Track name input for sign up
-  email = ''; // Track email input for login/sign up
-  password = ''; // Track password input for login/sign up
-  rememberMe = false; // Track remember me checkbox
+  isAnimationComplete = false;
+  isModalOpen = false;
+  isLoginModalOpen = false;
+  isSignUp = false;
+  iframeCode = '';
+  name = '';
+  email = '';
+  password = '';
+  rememberMe = false;
 
   artists = [
     { name: 'Artist Name 1', image: 'muhoza.jpg' },
@@ -62,19 +44,22 @@ export class PageAccueilComponent implements OnInit {
     { name: 'Artist Name 3', image: 'muhoza.jpg' },
     { name: 'Artist Name 4', image: 'muhoza.jpg' },
     { name: 'Artist Name 5', image: 'muhoza.jpg' },
-    { name: 'Artist Name 6', image: 'muhoza.jpg' },
-    { name: 'Artist Name 7', image: 'muhoza.jpg' },
-    { name: 'Artist Name 8', image: 'muhoza.jpg' },
-    { name: 'Artist Name 9', image: 'muhoza.jpg' },
-    { name: 'Artist Name 10', image: 'muhoza.jpg' },
   ];
 
-  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
+  currentArtistIndex = 0;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.checkRefresh();
     this.typeTitleText();
-    this.addScrollEventListener();
+    this.startArtistRotation();
+  }
+
+  startArtistRotation() {
+    setInterval(() => {
+      this.currentArtistIndex = (this.currentArtistIndex + 1) % this.artists.length;
+    }, 8000); // Rotate every 8 seconds
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -104,11 +89,10 @@ export class PageAccueilComponent implements OnInit {
           index++;
           setTimeout(typeEffect, 150);
         } else {
-          // Once typing is complete, show the rest of the content
           setTimeout(() => {
             this.showContent = true;
-            this.isAnimationComplete = true; // Mark animation as complete
-          }, 500); // Delay for smooth transition
+            this.isAnimationComplete = true;
+          }, 500);
         }
       };
 
@@ -148,7 +132,6 @@ export class PageAccueilComponent implements OnInit {
     this.router.navigate(['/faq']).then(() => window.scrollTo(0, 0));
   }
 
-  // Modal Methods
   openModal() {
     this.isModalOpen = true;
   }
@@ -158,12 +141,10 @@ export class PageAccueilComponent implements OnInit {
   }
 
   confirmIframe() {
-    // Logic to handle the iframe code, such as storing it or displaying it somewhere
     console.log('Iframe code:', this.iframeCode);
     this.closeModal();
   }
 
-  // Login Modal Methods
   openLoginModal() {
     this.isLoginModalOpen = true;
   }
@@ -177,7 +158,6 @@ export class PageAccueilComponent implements OnInit {
   }
 
   confirmSignIn() {
-    // Logic for sign in
     console.log('Email:', this.email);
     console.log('Password:', this.password);
     console.log('Remember me:', this.rememberMe);
@@ -185,7 +165,6 @@ export class PageAccueilComponent implements OnInit {
   }
 
   confirmSignUp() {
-    // Logic for sign up
     console.log('Name:', this.name);
     console.log('Email:', this.email);
     console.log('Password:', this.password);

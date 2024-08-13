@@ -49,7 +49,7 @@ export class ArtistsComponent implements OnInit {
   artists = [
     { name: 'Artist 1', image: 'assets/images/muhoza.jpg' },
     { name: 'Artist 2', image: 'assets/images/artist2.jpg' },
-    { name: 'Artist 3', image: 'assets/images/artist3.jpg' },
+    
     // Add more artist data as needed
   ];
 
@@ -161,3 +161,6 @@ export class ArtistsComponent implements OnInit {
     );
   }
 }
+
+
+

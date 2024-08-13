@@ -14,6 +14,8 @@
       <div class="burger-menu">
         <button class="close-button" (click)="toggleBurgerMenu()">X</button>
         <ul>
+            <li (click)="navigateToMain()">ACCUEIL</li>
+
           <li (click)="navigateToArtists()">ARTISTES</li>
           <li (click)="navigateToEvenement()">EVENEMENT</li>
           <li (click)="navigateToServices()">SERVICES</li>
@@ -114,8 +116,13 @@
           </div>
           <div class="frame-185">
             <div class="text-social-platforms">Social Platforms</div>
-            <div class="text-instagram">Instagram</div>
-            <div class="text-facebook">Facebook</div>
+            <div class="text-instagram">
+                <a href="https://www.instagram.com/elcroissantfertile/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              </div>
+              
+              <div class="text-facebook">
+                <a href="https://www.facebook.com/profile.php?id=61551492292716" target="_blank" rel="noopener noreferrer">Facebook</a>
+              </div>
           </div>
           <div class="frame-5">
             <div class="text-languages">Languages</div>

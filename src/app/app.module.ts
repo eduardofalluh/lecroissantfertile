@@ -11,7 +11,6 @@ import { ArtistsComponent } from './artists/artists.component';
 import { PageEvenementComponent } from './page-evenement/page-evenement.component';
 
 
-import { ButtonComponent } from './button/button.component';
 import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingModule
 import { PageContactComponent } from './page-contact/page-contact.component';
 import { PageFaqComponent } from './page-faq/page-faq.component';
@@ -22,7 +21,6 @@ import { PageFaqComponent } from './page-faq/page-faq.component';
   declarations: [
     AppComponent,
     PageAccueilComponent,
-    ButtonComponent,
     ArtistPageComponent,
     ServicesPageComponent,
     ArtistsComponent,

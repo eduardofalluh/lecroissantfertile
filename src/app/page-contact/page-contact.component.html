@@ -14,6 +14,8 @@
         <div class="burger-menu">
             <button class="close-button" (click)="toggleBurgerMenu()">X</button>
             <ul>
+                <li (click)="navigateToMain()">ACCUEIL</li>
+
                 <li (click)="navigateToArtists()">ARTISTES</li>
                 <li (click)="navigateToEvenement()">EVENEMENT</li>
                 <li (click)="navigateToServices()">SERVICES</li>
@@ -32,24 +34,28 @@
     <!-- Contact Section -->
     <div class="contact-section">
         <div class="about-us">
-            <div class="text-about-us">ABOUT US</div>
+            <div class="text-about-us">À propos de nous</div>
             <div class="about-description">
                 Le Croissant Fertile est une maison de disques qui fournit des services de l'industrie à divers artistes indépendants œuvrant dans tous les genres musicaux au Québec.
             </div>
         </div>
 
         <div class="our-mission">
-            <div class="text-our-mission">OUR MISSION</div>
+            <div class="text-our-mission">Notre objectif</div>
             <div class="mission-description">
                 Depuis nos débuts, notre mission est de soutenir le développement et l’épanouissement des carrières musicales, tout en permettant aux créateurs et interprètes de rester entièrement indépendants. Depuis sa fondation, Le Croissant Fertile, composé d’artistes, de mélomanes et de personnalités atypiques, a réussi à créer une atmosphère de coopération saine, valorisant chaque membre de manière équitable.
             </div>
         </div>
 
         <div class="reach-out">
-            <div class="text-reach-out">REACH OUT</div>
-            <div class="reach-out-description">
-                Écris-nous pour toute demande d'information, proposition de partenariat ou pour rejoindre notre équipe, on ne mord pas (par courriel)!
+            <div class="marquee">
+                <div class="marquee-content">
+                    Écris-nous pour toute demande d'information, proposition de partenariat ou pour rejoindre notre équipe, on ne mord pas (par courriel)!
+                </div>
             </div>
+            
+              
+              
             <form class="contact-form">
                 <input type="text" placeholder="NAME*" required>
                 <input type="email" placeholder="EMAIL*" required>
@@ -109,8 +115,13 @@
                 </div>
                 <div class="frame-185">
                     <div class="text-social-platforms">Social Platforms</div>
-                    <div class="text-instagram">Instagram</div>
-                    <div class="text-facebook">Facebook</div>
+                    <div class="text-instagram">
+                        <a href="https://www.instagram.com/elcroissantfertile/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                      </div>
+                      
+                      <div class="text-facebook">
+                        <a href="https://www.facebook.com/profile.php?id=61551492292716" target="_blank" rel="noopener noreferrer">Facebook</a>
+                      </div>
                 </div>
                 <div class="frame-5">
                     <div class="text-languages">Languages</div>

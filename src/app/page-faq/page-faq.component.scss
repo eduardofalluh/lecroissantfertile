@@ -158,6 +158,18 @@
 
 }
 
+.text-instagram a,
+.text-facebook a {
+  color: inherit; /* Keep the text color the same as the surrounding text */
+  text-decoration: none; /* Remove underline */
+}
+
+.text-instagram a:hover,
+.text-facebook a:hover {
+  text-decoration: underline; /* Add underline on hover if desired */
+}
+
+
 .footer-bottom {
     display: flex;
     justify-content: space-between;
@@ -168,11 +180,17 @@
 .text-rights-reserved {
     font-size: 16px;
     font-family: Koulen;
+    margin-left: 30px;
 }
 
 @media (max-width: 768px) {
+  .text-rights-reserved{
+    margin-left: 10px !important;
+  }
   .burger-menu li{
     font-size: 35px !important;
+    margin: 0 !important;
+
   }
 
   .text-website-links, .text-social-platforms, .text-languages {
@@ -243,8 +261,8 @@
   }
   
   .burger-menu li {
-    margin: 20px 0;
-    font-size: 50px;
+    margin: 0;
+    font-size: 40px;
     cursor: pointer;
     animation: slideIn 0.5s ease-in-out forwards;
     padding: 40px;

@@ -37,8 +37,8 @@ html, body {
 }
 
 .burger-menu li {
-  margin: 20px 0;
-  font-size: 50px;
+  margin: 0;
+  font-size: 40px;
   cursor: pointer;
   animation: slideIn 0.5s ease-in-out forwards;
   padding: 40px;
@@ -152,7 +152,6 @@ html, body {
 
 .text-about-us,
 .text-our-mission,
-.text-reach-out,
 .team-title {
   color: #000000;
   font-size: 25px;
@@ -162,7 +161,6 @@ html, body {
 
 .about-description,
 .mission-description,
-.reach-out-description,
 .team-member {
   color: #2b2d42;
   font-size: 24px;
@@ -170,6 +168,43 @@ html, body {
   margin-bottom: 30px;
   text-align: justify;
 }
+
+
+
+
+//Animation!!!!
+
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 60px; /* Adjust the height to match the text size */
+}
+
+.marquee-content {
+  text-align: center;
+  color: #e34d4d;
+  font-size: 35px;
+  font-family: Koulen;
+  margin-bottom: 30px;
+  display: inline-block;
+  animation: marquee 12s linear infinite;
+  white-space: nowrap;
+  margin-top: 5px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
 
 .contact-form {
   display: flex;
@@ -309,12 +344,35 @@ html, body {
 .text-rights-reserved {
   font-size: 16px;
   font-family: Koulen;
+  margin-left: 30px;
 }
+
+.text-instagram a,
+.text-facebook a {
+  color: inherit; /* Keep the text color the same as the surrounding text */
+  text-decoration: none; /* Remove underline */
+}
+
+.text-instagram a:hover,
+.text-facebook a:hover {
+  text-decoration: underline; /* Add underline on hover if desired */
+}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .marquee-content {
+    font-size: 25px;
+    animation: marquee 9s linear infinite !important;
+
+  }
+  .text-rights-reserved{
+    margin-left: 10px !important;
+  }
   .burger-menu li{
     font-size: 35px !important;
+    margin: 0 !important;
+
   }
   .text-website-links, .text-social-platforms, .text-languages {
     font-size: 20px;

@@ -92,8 +92,8 @@
 }
 
 .burger-menu li {
-  margin: 20px 0;
-  font-size: 50px;
+  margin: 0;
+  font-size: 40px;
   cursor: pointer;
   animation: slideIn 0.5s ease-in-out forwards;
   padding: 40px;
@@ -166,6 +166,18 @@
   font-family: Koulen;
   color: #000000;
 }
+
+.text-instagram a,
+.text-facebook a {
+  color: inherit; /* Keep the text color the same as the surrounding text */
+  text-decoration: none; /* Remove underline */
+}
+
+.text-instagram a:hover,
+.text-facebook a:hover {
+  text-decoration: underline; /* Add underline on hover if desired */
+}
+
 
 .service-item p {
   font-size: 24px;
@@ -250,12 +262,35 @@
 .text-rights-reserved {
   font-size: 16px;
   font-family: Koulen;
+  margin-left: 30px;
+}
+
+.button {
+  display: block; /* Make the button a block-level element */
+  margin: 0 auto; /* Center horizontally */  background: #e34d4d;
+  color: #ffffff;
+  font-family: Koulen;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 35px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .button{
+    font-size: 20px !important;
+  }
+  .text-rights-reserved{
+    margin-left: 10px !important;
+  }
   .burger-menu li{
     font-size: 35px !important;
+    margin: 0 !important;
+
   }
   .services-header h1{
     font-size: 35px !important;
@@ -263,6 +298,10 @@
   .service-item img{
     margin-left: 0 !important;
 
+  }
+  .service-item:hover {
+    transform: none;
+    box-shadow: none;
   }
   .service-item{
     display: block;
