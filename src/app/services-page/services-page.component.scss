@@ -14,6 +14,14 @@
   padding: 20px;
 }
 
+.button-delete{
+  background-color: #db3236;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
 /* Navbar Styles */
 .navbar {
   padding: 10px 20px;
@@ -43,7 +51,7 @@
 .text-le-croissant-fertile {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   cursor: pointer;
   margin-left: 80px;
 
@@ -54,13 +62,13 @@
   align-items: center;
   margin-right: 50px;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 }
 
 .text-en-fr {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 }
 
 .left-section {
@@ -79,6 +87,7 @@
   cursor: pointer;
 }
 
+
 .burger-menu {
   position: fixed;
   top: 0;
@@ -91,9 +100,49 @@
   z-index: 1001;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: flex-start; /* Align content to the left */
   overflow: hidden;
 }
+
+/* Add a pseudo-element to place the image in the background */
+.burger-menu::before {
+  content: "";
+  position: absolute;
+  top: 20%; /* Position in the vertical center */
+  left: 30%; /* Position in the horizontal center */
+  width: 600px; /* Adjust size as needed */
+  height: 600px; /* Adjust size as needed */
+  background: url('/assets/images/logo.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.2; /* Adjust opacity */
+  transform: translate(-50%, -50%) rotate(0deg); /* Center the image and start with no rotation */
+  animation: spin 4s linear infinite; /* Spin the image */
+  z-index: -1; /* Ensure the image is behind the menu content */
+}
+
+/* Spinning animation */
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); /* Start with no rotation */
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); /* Full rotation */
+  }
+}
+
+.burger-menu ul {
+  list-style-type: none !important; /* Ensure no bullet points */
+  padding-left: 0 !important; /* Remove any padding */
+  margin: 0 !important; /* Remove any margin */
+}
+
+.burger-menu li {
+  list-style: none !important; /* Ensure no bullet points */
+  margin: 0; /* Ensure there's no extra margin */
+  padding: 0; /* Ensure there's no extra padding */
+}
+
 
 .burger-menu ul {
   list-style: none;
@@ -146,7 +195,7 @@
 
 .services-header h1 {
   font-size: 85px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 }
 
 /* Services Content */
@@ -173,7 +222,7 @@
 
 .service-item h2 {
   font-size: 42px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   color: #000000;
 }
 
@@ -191,7 +240,7 @@
 
 .service-item p {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   color: #2b2d42;
   text-align: justify;
 }
@@ -231,7 +280,7 @@
 .footer-description {
   text-align: center;
   margin: 20px 0;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   max-width: 800px;
   text-align: justify;
 }
@@ -251,13 +300,13 @@
 
 .text-website-links, .text-social-platforms, .text-languages {
   font-size: 32px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
 }
 
 .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin: 5px 0;
   cursor: pointer;
 }
@@ -271,7 +320,7 @@
 
 .text-rights-reserved {
   font-size: 16px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-left: 30px;
 }
 
@@ -279,7 +328,7 @@
   display: block; /* Make the button a block-level element */
   margin: 0 auto; /* Center horizontally */  background: #e34d4d;
   color: #ffffff;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -298,7 +347,7 @@
   z-index: 1000;
   width: 60px; /* Adjust size as needed */
   height: 60px; /* Adjust size as needed */
-  background-color: rgba(0, 0, 0, 0.7); /* Dark background with some transparency */
+  background-color: rgb(0, 0, 0); /* Dark background with some transparency */
   border-radius: 50%; /* Make it circular */
   display: flex;
   align-items: center;
@@ -314,10 +363,7 @@
   cursor: pointer;
 }
 
-/* Optional: Add hover effect */
-.sticky-burgerbar:hover {
-  background-color: rgba(227, 77, 77, 0.9); /* Change background color on hover */
-}
+
 
 
 
@@ -333,6 +379,10 @@
         height: 65px !important;
 
     }
+
+    .footer-logo img {
+      max-width: 50% !important;
+    }
   .button{
     font-size: 20px !important;
   }
@@ -340,7 +390,7 @@
     margin-left: 10px !important;
   }
   .burger-menu li{
-    font-size: 35px !important;
+    font-size: 30px !important;
     margin: 0 !important;
 
   }
@@ -361,12 +411,12 @@
   }
   .text-website-links, .text-social-platforms, .text-languages {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
   
   .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
   .navbar {
       height: auto;
@@ -393,12 +443,12 @@
 
   .text-website-links, .text-social-platforms, .text-languages {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
   
   .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
 }
 

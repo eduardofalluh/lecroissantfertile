@@ -9,7 +9,7 @@ html, body {
 
 h1{
     // font-size: 45px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
 }
 
 
@@ -32,9 +32,37 @@ h1{
   z-index: 1001;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: flex-start; /* Align content to the left */
   overflow: hidden;
 }
+
+/* Add a pseudo-element to place the image in the background */
+.burger-menu::before {
+  content: "";
+  position: absolute;
+  top: 20%; /* Position in the vertical center */
+  left: 30%; /* Position in the horizontal center */
+  width: 600px; /* Adjust size as needed */
+  height: 600px; /* Adjust size as needed */
+  background: url('/assets/images/logo.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.2; /* Adjust opacity */
+  transform: translate(-50%, -50%) rotate(0deg); /* Center the image and start with no rotation */
+  animation: spin 4s linear infinite; /* Spin the image */
+  z-index: -1; /* Ensure the image is behind the menu content */
+}
+
+/* Spinning animation */
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); /* Start with no rotation */
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); /* Full rotation */
+  }
+}
+
 
 .burger-menu ul {
   list-style: none;
@@ -107,7 +135,7 @@ h1{
 .text-le-croissant-fertile {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   cursor: pointer;
   margin-left: 80px;
 
@@ -118,14 +146,14 @@ h1{
   align-items: center;
   margin-right: 50px;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 
 }
 
 .text-en-fr {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 }
 
 .left-section{
@@ -157,7 +185,7 @@ h1{
 .title {
   color: #ffffff;
   font-size: 45px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   text-align: center;
   margin-top: 10px;
 }
@@ -191,7 +219,7 @@ h1{
   justify-content: center;
   align-items: center;
   color: #000000;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   cursor: pointer;
   border-radius: 1000px;
   flex-direction: column;
@@ -201,15 +229,27 @@ h1{
 
 .text-artist-name {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 10px;
   position: absolute;
-  top: -30px; /* Position above the circle */
+  top: -35px; /* Position above the circle */
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
 
   transition: opacity 0.3s ease; /* Smooth transition for text opacity */
+}
+
+.text-artist-delete{
+  font-size: 24px;
+  font-family: 'Roboto Slab', serif;
+  margin-bottom: 10px;
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  white-space: nowrap;
+  text-align: center;
+
 }
 
 .artist-card:hover {
@@ -268,7 +308,7 @@ h1{
 .footer-description {
   text-align: center;
   margin: 20px 0;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   max-width: 800px;
   text-align: justify;
 }
@@ -289,13 +329,13 @@ h1{
 
 .text-website-links, .text-social-platforms, .text-languages {
   font-size: 32px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
 }
 
 .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin: 5px 0;
   cursor: pointer;
 
@@ -310,10 +350,9 @@ h1{
 
 .text-rights-reserved {
   font-size: 16px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-left: 30px;
 }
-
 
 /* Sticky burger bar container */
 .sticky-burgerbar {
@@ -323,7 +362,7 @@ h1{
   z-index: 1000;
   width: 60px; /* Adjust size as needed */
   height: 60px; /* Adjust size as needed */
-  background-color: rgba(0, 0, 0, 0.7); /* Dark background with some transparency */
+  background-color: rgb(0, 0, 0); /* Dark background with some transparency */
   border-radius: 50%; /* Make it circular */
   display: flex;
   align-items: center;
@@ -339,10 +378,8 @@ h1{
   cursor: pointer;
 }
 
-/* Optional: Add hover effect */
-.sticky-burgerbar:hover {
-  background-color: rgba(227, 77, 77, 0.9); /* Change background color on hover */
-}
+
+
 
 .logo-foot{
   display: flex;
@@ -360,6 +397,10 @@ h1{
 }
 /* Responsive Styles */
 @media (max-width: 768px) {
+
+  .footer-logo img {
+    max-width: 50% !important;
+  }
     .navbar{
         height: 65px !important;
 
@@ -368,18 +409,18 @@ h1{
     margin-left: 10px !important;
   }
   .burger-menu li{
-    font-size: 35px !important;
+    font-size: 30px !important;
     margin: 0 !important;
 
   }
   .text-website-links, .text-social-platforms, .text-languages {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
   
   .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
   .navbar {
     height: auto;

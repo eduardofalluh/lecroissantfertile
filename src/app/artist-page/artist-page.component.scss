@@ -5,6 +5,8 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
+
 }
 
 .burgerbar {
@@ -26,9 +28,37 @@ html, body {
   z-index: 1001;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: flex-start; /* Align content to the left */
   overflow: hidden;
 }
+
+/* Add a pseudo-element to place the image in the background */
+.burger-menu::before {
+  content: "";
+  position: absolute;
+  top: 20%; /* Position in the vertical center */
+  left: 30%; /* Position in the horizontal center */
+  width: 600px; /* Adjust size as needed */
+  height: 600px; /* Adjust size as needed */
+  background: url('/assets/images/logo.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.2; /* Adjust opacity */
+  transform: translate(-50%, -50%) rotate(0deg); /* Center the image and start with no rotation */
+  animation: spin 4s linear infinite; /* Spin the image */
+  z-index: -1; /* Ensure the image is behind the menu content */
+}
+
+/* Spinning animation */
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); /* Start with no rotation */
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); /* Full rotation */
+  }
+}
+
 
 .burger-menu ul {
   list-style: none;
@@ -114,7 +144,7 @@ html, body {
 .text-le-croissant-fertile {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   cursor: pointer;
   margin-left: 80px;
 
@@ -125,14 +155,14 @@ html, body {
   align-items: center;
   margin-right: 50px;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 
 }
 
 .text-en-fr {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 }
 
 .left-section{
@@ -168,7 +198,7 @@ html, body {
 .title {
   color: #ffffff;
   font-size: 96px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   text-align: center;
   margin-top: 10px;
 }
@@ -201,7 +231,7 @@ html, body {
 .artist-header  {
   color: #ffffff;
   font-size: 42px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 55px;
   text-align: center;
   background-color: #000000;
@@ -217,14 +247,14 @@ html, body {
 .artist-bio h2 {
   color: #000000;
   font-size: 32px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
 }
 
 .artist-bio p {
   color: #2b2d42;
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   max-width: 900px;
   text-align: justify;
 }
@@ -258,7 +288,7 @@ h2{
     position: absolute;
     border-radius: 10px;
     color: white;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
     margin-top: 20px;
   }
   
@@ -275,7 +305,7 @@ h2{
 .btn {
   background: #e34d4d;
   color: #ffffff;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -311,7 +341,7 @@ h2{
 .artist-extra .text-what-s-new {
   color: #000000;
   font-size: 42px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -359,7 +389,7 @@ h2{
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 }
 
 .footer {
@@ -383,7 +413,7 @@ h2{
 .footer-description {
   text-align: center;
   margin: 20px 0;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   max-width: 800px;
   text-align: justify;
 }
@@ -403,13 +433,13 @@ h2{
 
 .text-website-links, .text-social-platforms, .text-languages {
   font-size: 32px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
 }
 
 .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin: 5px 0;
   cursor: pointer;
 
@@ -433,31 +463,98 @@ h2{
   text-decoration: underline; /* Add underline on hover if desired */
 }
 
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust gap between photo cards as needed */
+}
+
+.photo-card {
+  width: 400px; /* Adjust width as needed */
+  height: 400px; /* Adjust height as needed */
+  border: 2px solid #e34d4d; /* Example border, adjust as needed */
+  border-radius: 10px; /* Optional: make corners rounded */
+  overflow: hidden; /* Ensures images don't overflow the card */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0; /* Example background color */
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the card while maintaining aspect ratio */
+  object-position: center; /* Centers the image within the card */
+  border-radius: 10px; /* Optional: match the border-radius of the card */
+}
+
+
+//IFrame Carousel=====================
+.iframe-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 450px;
+}
+
+.iframe-marquee {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.iframe-marquee-content {
+  display: inline-flex;
+  align-items: center;
+  animation: marquee 14s linear infinite; /* Adjust speed as necessary */
+}
+
+@keyframes marquee {
+  0% {
+      transform: translateX(0%);
+  }
+  100% {
+      transform: translateX(-50%);
+  }
+}
+
+.iframe-marquee-content iframe {
+  margin-right: 20px; /* Optional: Add space between iframes */
+}
+
 
 .text-rights-reserved {
   font-size: 16px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-left: 30px;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .iframe-marquee-content {
+    animation: marquee 20s linear infinite !important; /* Adjust speed as necessary */
+  }
+  .footer-logo img {
+    max-width: 50% !important;
+  }
   .text-rights-reserved{
     margin-left: 10px !important;
   }
   .burger-menu li{
-    font-size: 35px !important;
+    font-size: 30px !important;
     margin: 0 !important;
 
   }
   .text-website-links, .text-social-platforms, .text-languages {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
   
   .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
   .navbar {
     height: auto;
@@ -573,7 +670,7 @@ h2{
   
 
 
-  .iframe-carousel {
+  .iframe-carousel-1{
     overflow: hidden;
     width: 100%;
     position: relative;
@@ -601,7 +698,7 @@ h2{
   z-index: 1000;
   width: 60px; /* Adjust size as needed */
   height: 60px; /* Adjust size as needed */
-  background-color: rgba(0, 0, 0, 0.7); /* Dark background with some transparency */
+  background-color: rgb(0, 0, 0); /* Dark background with some transparency */
   border-radius: 50%; /* Make it circular */
   display: flex;
   align-items: center;
@@ -617,10 +714,7 @@ h2{
   cursor: pointer;
 }
 
-/* Optional: Add hover effect */
-.sticky-burgerbar:hover {
-  background-color: rgba(227, 77, 77, 0.9); /* Change background color on hover */
-}
+
 
 
 
@@ -644,7 +738,7 @@ h2{
 .text-what-s-new {
     color: #000000;
     font-size: 42px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
     margin-bottom: 30px;
     text-align: center;
     margin-top: 30px;

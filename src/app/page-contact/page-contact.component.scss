@@ -33,7 +33,7 @@ html, body {
 .burger-menu ul {
   list-style: none;
   padding: 0;
-  margin: 50px 0 0;
+  margin: 35px 0 0;
 }
 
 .burger-menu li {
@@ -86,6 +86,50 @@ html, body {
   padding: 20px;
 }
 
+.burger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  padding: 20px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: flex-start; /* Align content to the left */
+  overflow: hidden;
+}
+
+/* Add a pseudo-element to place the image in the background */
+.burger-menu::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px; /* Adjust size as needed */
+  height: 600px; /* Adjust size as needed */
+  background: url('/assets/images/logo.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.2; /* Adjust opacity */
+  transform: translate(-50%, -50%) rotate(0deg); /* Center the image and start with no rotation */
+  animation: spin 4s linear infinite; /* Spin the image */
+  z-index: -1; /* Ensure the image is behind the menu content */
+}
+
+/* Spinning animation */
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); /* Start with no rotation */
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); /* Full rotation */
+  }
+}
+
+
 .navbar {
   padding: 10px 20px;
   top: 0;
@@ -114,7 +158,7 @@ html, body {
 .text-le-croissant-fertile {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   cursor: pointer;
   margin-left: 80px;
 
@@ -125,14 +169,14 @@ html, body {
   align-items: center;
   margin-right: 50px;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 
 }
 
 .text-en-fr {
   color: #ffffff;
   font-size: 40px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
 }
 
 .left-section{
@@ -152,7 +196,7 @@ html, body {
 .cover .title {
   color: #ffffff;
   font-size: 50px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-top: 10px;
 }
 
@@ -165,7 +209,7 @@ html, body {
 .team-title {
   color: #000000;
   font-size: 25px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
 }
 
@@ -174,10 +218,11 @@ html, body {
 .team-member {
   color: #2b2d42;
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 30px;
   text-align: justify;
 }
+
 
 
 
@@ -196,7 +241,7 @@ html, body {
   text-align: center;
   color: #e34d4d;
   font-size: 35px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 30px;
   display: inline-block;
   animation: marquee 12s linear infinite;
@@ -235,7 +280,7 @@ html, body {
 .contact-form button {
   background: #e34d4d;
   color: #ffffff;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -249,7 +294,7 @@ html, body {
 .email-info {
   color: #e34d4d;
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   text-align: center;
 }
 
@@ -300,7 +345,7 @@ html, body {
 .footer-description {
   text-align: center;
   margin: 20px 0;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   max-width: 800px;
   text-align: justify;
 }
@@ -325,7 +370,7 @@ html, body {
 .text-social-platforms,
 .text-languages {
   font-size: 32px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-bottom: 20px;
 }
 
@@ -338,7 +383,7 @@ html, body {
 .text-english,
 .text-french {
   font-size: 24px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin: 5px 0;
   cursor: pointer;
 
@@ -353,7 +398,7 @@ html, body {
 
 .text-rights-reserved {
   font-size: 16px;
-  font-family: Koulen;
+  font-family: 'Roboto Slab', serif;
   margin-left: 30px;
 }
 
@@ -378,7 +423,7 @@ html, body {
   z-index: 1000;
   width: 60px; /* Adjust size as needed */
   height: 60px; /* Adjust size as needed */
-  background-color: rgba(0, 0, 0, 0.7); /* Dark background with some transparency */
+  background-color: rgb(0, 0, 0); /* Dark background with some transparency */
   border-radius: 50%; /* Make it circular */
   display: flex;
   align-items: center;
@@ -394,10 +439,8 @@ html, body {
   cursor: pointer;
 }
 
-/* Optional: Add hover effect */
-.sticky-burgerbar:hover {
-  background-color: rgba(227, 77, 77, 0.9); /* Change background color on hover */
-}
+
+
 
 
 
@@ -422,21 +465,25 @@ html, body {
     margin-left: 10px !important;
   }
   .burger-menu li{
-    font-size: 35px !important;
+    font-size: 30px !important;
     margin: 0 !important;
 
   }
   .text-website-links, .text-social-platforms, .text-languages {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
   
   .text-about, .text-faqs, .text-instagram, .text-facebook, .text-english, .text-french {
     font-size: 20px;
-    font-family: Koulen;
+    font-family: 'Roboto Slab', serif;
   }
     .about-description{
         font-size: 20px;
+    }
+
+    .footer-logo img {
+      max-width: 50% !important;
     }
 
     .mission-description{

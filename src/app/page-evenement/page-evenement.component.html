@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Croissant Fertile</title>
+
+    <!-- Import Roboto Slab font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Add your component-specific styles -->
+    <style>
+        /* The content of your `page-acceuil.component.scss` should go here, if needed */
+    </style>
+</head>
 <div class="page-evenement">
     <!-- Navbar -->
     <div class="navbar">
@@ -17,7 +32,6 @@
         <button class="close-button" (click)="toggleBurgerMenu()">X</button>
         <ul>
             <li (click)="navigateToMain()">ACCUEIL</li>
-
           <li (click)="navigateToArtists()">ARTISTES</li>
           <li (click)="navigateToEvenement()">BOUTIQUE</li>
           <li (click)="navigateToServices()">SERVICES</li>
@@ -60,6 +74,8 @@
         <div class="event-column">{{ event.address }}</div>
         <div class="event-column">
           <button class="btn-buy-tickets" (click)="openTicketModal(event)">Acheter Tickets</button>
+          <button class="btn-buy-tickets">Delete Button</button>
+
         </div>
       </div>
     </div>

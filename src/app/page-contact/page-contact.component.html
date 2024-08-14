@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Croissant Fertile</title>
+
+    <!-- Import Roboto Slab font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Add your component-specific styles -->
+    <style>
+        /* The content of your `page-acceuil.component.scss` should go here, if needed */
+    </style>
+</head>
 <div class="page-contact">
     <!-- Navbar -->
     <div class="navbar">
@@ -73,11 +88,13 @@
                 <div class="member-name">LOU-FÉLIX BEAUDIN</div>
                 <div class="member-title">DIRECTEUR GÉNÉRAL</div>
                 <div class="member-email">LOUFELIX&#64;CROISSANTFERTILE.COM</div>
+                <button class="btn-add-contact">Delete Contact</button>
             </div>
             <div class="team-member">
                 <div class="member-name">NICOLAS JACQUES</div>
                 <div class="member-title">COORDINATEUR DES OPÉRATIONS | OPERATIONS COORDINATOR</div>
                 <div class="member-email">NICOLAS&#64;CROISSANTFERTILE.COM</div>
+                <button class="btn-add-contact">Delete Contact</button>
             </div>
             <button class="btn-add-contact" (click)="openModal()">Add Contact</button>
         </div>

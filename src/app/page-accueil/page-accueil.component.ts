@@ -59,7 +59,7 @@ export class PageAccueilComponent implements OnInit {
   startArtistRotation() {
     setInterval(() => {
       this.currentArtistIndex = (this.currentArtistIndex + 1) % this.artists.length;
-    }, 8000); // Rotate every 8 seconds
+    }, 4000); // Rotate every 8 seconds
   }
 
   @HostListener('window:scroll', ['$event'])

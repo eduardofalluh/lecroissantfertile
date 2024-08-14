@@ -60,6 +60,8 @@
           <input type="text" [(ngModel)]="iframeCode" placeholder="Enter Iframe Code">
           <button (click)="confirmIframe()">Confirm</button>
           <button (click)="closeModal()">Cancel</button>
+          <button type="button" >DELETE IFRAMES</button>
+
         </div>
       </div>
     </div>
@@ -110,33 +112,23 @@
         <div class="text-what-s-new">NOUVEAUTÉ</div>
         <button class="btn-add-iframe" (click)="openModal()">Add Iframe</button>
       </div>
-      <div class="iframe-carousel-inner">
-        <div class="iframe-item">
-          <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="iframe-carousel">
+        <div class="iframe-marquee">
+            <div class="iframe-marquee-content">
+                <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" width="300" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" width="300" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" width="300" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" width="300" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <!-- Duplicate the first set of iframes to ensure a smooth loop -->
+                <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" width="300" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" width="300" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" width="300" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" width="300" height="380" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
         </div>
-        <div class="iframe-item">
-          <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        <div class="iframe-item">
-          <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        <div class="iframe-item">
-          <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        <div class="iframe-item">
-          <iframe src="https://open.spotify.com/embed/album/1N4fbPCEBnIeKs56SANfLw?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        <div class="iframe-item">
-          <iframe src="https://open.spotify.com/embed/album/1VwL3ILr1YToUclORHwKPL?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        <div class="iframe-item">
-          <iframe src="https://open.spotify.com/embed/album/4L21vpQKBKKHyFWQCWM0Vy?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        <div class="iframe-item">
-          <iframe src="https://open.spotify.com/embed/album/04xiGSW9aI0QXelHfTB5U3?utm_source=generator" style="border-radius:12px" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-      </div>
     </div>
+    </div>
+    
     
     <div class="service-item hidden-left slide-in" id="about-us" *ngIf="showContent" [@slideInFromLeft]>
       <div class="service-text">
