@@ -258,6 +258,9 @@
   .text-rights-reserved{
     margin-left: 10px !important;
   }
+  .burger-menu::before{
+    left: 90%;
+  }
   .burger-menu li{
     font-size: 30px !important;
     margin: 0 !important;
