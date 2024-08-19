@@ -33,12 +33,12 @@ html, body {
 .burger-menu ul {
   list-style: none;
   padding: 0;
-  margin: 35px 0 0;
+  margin: 65px 0 0;
 }
 
 .burger-menu li {
   margin: 0;
-  font-size: 40px;
+  font-size: 30px;
   cursor: pointer;
   animation: slideIn 0.5s ease-in-out forwards;
   padding: 40px;
@@ -340,6 +340,8 @@ html, body {
   max-width: 30%;
   height: auto;
   animation: spin 4s linear infinite;
+  margin-top: 150px ;
+  margin-left: 60px ;
 }
 
 .footer-description {
@@ -452,6 +454,9 @@ html, body {
 }
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .burger-menu::before{
+    left: 90% !important;
+  }
     .navbar{
         height: 65px !important;
 
@@ -484,6 +489,8 @@ html, body {
 
     .footer-logo img {
       max-width: 50% !important;
+      margin-top: 90px !important;
+      margin-left: 90px !important;
     }
 
     .mission-description{

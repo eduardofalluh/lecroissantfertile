@@ -91,12 +91,12 @@ html, body {
 .burger-menu ul {
   list-style: none;
   padding: 0;
-  margin: 15px 0 0;
+  margin: 35px 0 0;
 }
 
 .burger-menu li {
   margin: 0;
-  font-size: 40px;
+  font-size: 30px;
   cursor: pointer;
   animation: slideIn 0.5s ease-in-out forwards;
   padding: 40px;
@@ -554,6 +554,7 @@ html, body {
   }
   .service-text{
     margin-left: 10px;
+    max-width: 95% !important;
   }
   .service-item{
     display: block !important;
