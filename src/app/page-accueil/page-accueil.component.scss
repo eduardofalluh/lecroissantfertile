@@ -466,7 +466,6 @@ html, body {
   margin: 20px 0;
   font-family: 'Roboto Slab', serif;
   max-width: 800px;
-  text-align: justify;
 }
 
 .footer-links {
@@ -484,7 +483,6 @@ html, body {
 }
 
 .logo-foot{
-  display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   text-align: center; /* Ensure text inside is centered */

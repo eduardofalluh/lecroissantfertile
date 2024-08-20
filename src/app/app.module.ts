@@ -14,6 +14,7 @@ import { PageEvenementComponent } from './page-evenement/page-evenement.componen
 import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingModule
 import { PageContactComponent } from './page-contact/page-contact.component';
 import { PageFaqComponent } from './page-faq/page-faq.component';
+import { ThreeDLogoComponent } from './three-d-logo/three-d-logo.component';
 // Import SwiperModule
 // import 'swiper/swiper-bundle.min.css';
 
@@ -27,6 +28,7 @@ import { PageFaqComponent } from './page-faq/page-faq.component';
     PageEvenementComponent,
     PageContactComponent,
     PageFaqComponent,
+    ThreeDLogoComponent,
   ],
   imports: [
     BrowserModule,
