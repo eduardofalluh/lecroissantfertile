@@ -55,6 +55,9 @@ export class PageAccueilComponent implements OnInit {
     this.typeTitleText();
     this.startArtistRotation();
   }
+  
+  
+  
 
   startArtistRotation() {
     setInterval(() => {

@@ -864,6 +864,11 @@ html, body {
   height: 580px;
 }
 
+/* Pauses animation on hover */
+.iframe-carousel:hover .iframe-marquee-content {
+  animation-play-state: paused;
+}
+
 .iframe-marquee {
   display: flex;
   align-items: center;
